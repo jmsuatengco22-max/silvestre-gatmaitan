@@ -44,10 +44,42 @@
       border: 2px solid #c6922b;
       box-shadow: inset 0 0 0 3px #fffdf9, inset 0 0 0 5px rgba(23, 58, 117, 0.16);
     }
+
+    /* Excel-style spreadsheet grid for printing */
+    .excel-print-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Calibri, Arial, sans-serif;
+      font-size: 11pt;
+      color: #000000;
+      background: #ffffff;
+    }
+    .excel-print-table th,
+    .excel-print-table td {
+      border: 1px solid #8c8c8c;
+      padding: 6px 8px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .excel-print-table thead th {
+      background-color: #d9e1f2;
+      font-weight: 700;
+      color: #000000;
+    }
+
     @media print {
-      body { background: #fff !important; color: #000 !important; }
-      .no-print { display: none !important; }
-      .gold-frame { border: 1px solid #999 !important; box-shadow: none !important; }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 12px !important;
+      }
+      body > *:not(#excelPrintContainer) {
+        display: none !important;
+      }
+      #excelPrintContainer {
+        display: block !important;
+      }
     }
   </style>
 </head>
@@ -80,7 +112,7 @@
       <div class="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">Organizer Access</div>
       <h1 class="font-display text-2xl font-bold text-royal-900">Admin Sign In</h1>
       <p class="text-sm text-royal-800/80 mt-1 mb-5">
-        Enter your organizer passcode to view responses and print the clan report.
+        Enter your organizer passcode to view responses, add or delete entries, and print the Excel table.
       </p>
 
       <label for="passcodeInput" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1.5">
@@ -127,13 +159,16 @@
           </button>
           <button
             type="button"
-            onclick="window.print()"
+            onclick="printExcelTable()"
             class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 font-bold text-xs sm:text-sm border border-gold-400 shadow transition cursor-pointer"
           >
             🖨 Print Report
           </button>
         </div>
       </div>
+
+      <!-- Status / Action Banner -->
+      <div id="adminBanner" class="hidden px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold"></div>
 
       <!-- Summary Cards -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
@@ -157,6 +192,67 @@
           </div>
         </div>
       </div>
+
+      <!-- Manual Entry Form -->
+      <form id="manualAddForm" onsubmit="handleManualAdd(event)" class="rounded-2xl p-4 sm:p-5 gold-frame space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h2 class="font-display text-base sm:text-lg font-bold text-royal-900">
+            Manual RSVP Entry
+          </h2>
+          <span class="text-xs text-royal-800/75">Adds directly to Firebase</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label for="manualPangalan" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1">
+              Pangalan *
+            </label>
+            <input
+              id="manualPangalan"
+              type="text"
+              required
+              placeholder="Enter full name"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-sm text-royal-950 focus:outline-none focus:border-royal-800"
+            />
+          </div>
+
+          <div>
+            <label for="manualResponse" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1">
+              Makakapunta ka ba? *
+            </label>
+            <select
+              id="manualResponse"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-sm text-royal-950 focus:outline-none focus:border-royal-800"
+            >
+              <option value="Oo">Oo (Attending)</option>
+              <option value="Hindi">Hindi (Not Attending)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="manualFamily" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1">
+              Family *
+            </label>
+            <select
+              id="manualFamily"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-sm text-royal-950 focus:outline-none focus:border-royal-800"
+            >
+              <option value="SILVESTRE">SILVESTRE</option>
+              <option value="GATMAITAN">GATMAITAN</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <button
+            id="manualSubmitBtn"
+            type="submit"
+            class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 font-bold text-xs sm:text-sm border border-gold-400 shadow hover:brightness-105 transition cursor-pointer"
+          >
+            + Add Entry
+          </button>
+        </div>
+      </form>
 
       <!-- Filters -->
       <div class="no-print rounded-2xl p-4 gold-frame grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -187,7 +283,7 @@
         </select>
       </div>
 
-      <!-- Printable Guest Table -->
+      <!-- Guest Table with Delete Action -->
       <div class="rounded-3xl gold-frame overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse text-sm">
@@ -198,11 +294,12 @@
                 <th class="py-3.5 px-4">Makakapunta ka ba?</th>
                 <th class="py-3.5 px-4">Family</th>
                 <th class="py-3.5 px-4">Submitted At</th>
+                <th class="py-3.5 px-4 text-right">Action</th>
               </tr>
             </thead>
             <tbody id="rsvpTableBody" class="divide-y divide-gold-200 bg-ivory-50">
               <tr>
-                <td colspan="5" class="py-8 px-4 text-center text-royal-800/70">Loading RSVP responses...</td>
+                <td colspan="6" class="py-8 px-4 text-center text-royal-800/70">Loading RSVP responses...</td>
               </tr>
             </tbody>
           </table>
@@ -212,18 +309,36 @@
     </div>
   </main>
 
+  <!-- Dedicated Excel-Only Print Container -->
+  <div id="excelPrintContainer" class="hidden">
+    <table class="excel-print-table" aria-label="RSVP Excel Table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Pangalan</th>
+          <th>Makakapunta ka ba?</th>
+          <th>Family</th>
+          <th>Submitted At</th>
+        </tr>
+      </thead>
+      <tbody id="excelPrintBody"></tbody>
+    </table>
+  </div>
+
   <script>
     (function () {
       'use strict';
 
       const ADMIN_PASSCODE = 'SG2027';
-      const FIREBASE_DB_URL = 'https://reunion-2027-300cb-default-rtdb.asia-southeast1.firebasedatabase.app/rsvps.json';
+      const FIREBASE_BASE_URL = 'https://reunion-2027-300cb-default-rtdb.asia-southeast1.firebasedatabase.app/rsvps';
+      const FIREBASE_DB_URL = FIREBASE_BASE_URL + '.json';
 
       const RSVP_STORAGE_KEY = 'silvestre_gatmaitan_rsvp_2027';
       const RSVP_CHANNEL_NAME = 'silvestre_gatmaitan_rsvp_channel';
       const RSVP_CUSTOM_EVENT = 'silvestre-gatmaitan-rsvp-submitted';
 
       let records = [];
+      let lastFiltered = [];
 
       document.getElementById('passcodeInput')?.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') unlockDashboard();
@@ -243,6 +358,16 @@
         }
       };
 
+      function showAdminBanner(msg, isError) {
+        const el = document.getElementById('adminBanner');
+        if (!el) return;
+        el.textContent = msg;
+        el.className = isError
+          ? 'px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold bg-red-50 border border-red-300 text-red-900'
+          : 'px-4 py-3 rounded-2xl text-xs sm:text-sm font-semibold bg-emerald-50 border border-emerald-300 text-emerald-900';
+        el.classList.remove('hidden');
+      }
+
       function readLocalRecords() {
         try {
           const raw = window.localStorage.getItem(RSVP_STORAGE_KEY);
@@ -253,13 +378,45 @@
         }
       }
 
-      function mergeRecords(localList, remoteList) {
+      function removeLocalRecord(entryId) {
+        if (!entryId) return;
+        try {
+          const updated = readLocalRecords().filter((item) => item && item.id !== entryId);
+          window.localStorage.setItem(RSVP_STORAGE_KEY, JSON.stringify(updated));
+        } catch (_err) {}
+      }
+
+      function mergeRecords(localList, remoteEntries) {
         const map = new Map();
-        [...remoteList, ...localList].forEach((item, idx) => {
+
+        remoteEntries.forEach(({ fbKey, val }) => {
+          if (!val || !val.pangalan) return;
+          const key = val.id || fbKey;
+          map.set(key, {
+            fbKey,
+            id: val.id || fbKey,
+            pangalan: val.pangalan,
+            response: val.response || '',
+            family: val.family || '',
+            submittedAt: val.submittedAt || '',
+          });
+        });
+
+        localList.forEach((item, idx) => {
           if (!item || !item.pangalan) return;
           const key = item.id || `${item.pangalan}|${item.family}|${item.submittedAt || idx}`;
-          map.set(key, item);
+          if (!map.has(key)) {
+            map.set(key, {
+              fbKey: null,
+              id: item.id || key,
+              pangalan: item.pangalan,
+              response: item.response || '',
+              family: item.family || '',
+              submittedAt: item.submittedAt || '',
+            });
+          }
         });
+
         return Array.from(map.values()).sort((a, b) =>
           String(a.submittedAt || '').localeCompare(String(b.submittedAt || ''))
         );
@@ -267,21 +424,21 @@
 
       window.refreshAllData = async function refreshAllData() {
         const localList = readLocalRecords();
-        let remoteList = [];
+        let remoteEntries = [];
         let statusText = 'Connecting to Firebase...';
 
         try {
           const res = await fetch(FIREBASE_DB_URL);
           const data = await res.json();
           if (data && typeof data === 'object') {
-            remoteList = Object.values(data);
+            remoteEntries = Object.entries(data).map(([fbKey, val]) => ({ fbKey, val }));
           }
           statusText = `Synced with Firebase • Updated ${new Date().toLocaleTimeString()}`;
         } catch (_err) {
           statusText = 'Offline mode: showing local device entries';
         }
 
-        records = mergeRecords(localList, remoteList);
+        records = mergeRecords(localList, remoteEntries);
         const statusEl = document.getElementById('syncStatus');
         if (statusEl) statusEl.textContent = statusText;
 
@@ -309,6 +466,30 @@
         }[ch]));
       }
 
+      function syncExcelPrintBody(rows) {
+        const printBody = document.getElementById('excelPrintBody');
+        if (!printBody) return;
+
+        if (!rows || rows.length === 0) {
+          printBody.innerHTML = '<tr><td colspan="5">No matching RSVP records</td></tr>';
+          return;
+        }
+
+        printBody.innerHTML = rows.map((r, i) => {
+          const formattedDate = r.submittedAt
+            ? new Date(r.submittedAt).toLocaleString()
+            : '-';
+          return `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${escapeHtml(r.pangalan)}</td>
+              <td>${escapeHtml(r.response)}</td>
+              <td>${escapeHtml(r.family)}</td>
+              <td>${escapeHtml(formattedDate)}</td>
+            </tr>`;
+        }).join('');
+      }
+
       window.renderRows = function renderRows() {
         const q = (document.getElementById('searchName')?.value || '').trim().toLowerCase();
         const respFilter = document.getElementById('filterResponse')?.value || 'ALL';
@@ -323,10 +504,13 @@
           return matchName && matchResp && matchFam;
         });
 
+        lastFiltered = filtered;
+        syncExcelPrintBody(filtered);
+
         if (filtered.length === 0) {
           tbody.innerHTML = `
             <tr>
-              <td colspan="5" class="py-8 px-4 text-center text-royal-800/70">
+              <td colspan="6" class="py-8 px-4 text-center text-royal-800/70">
                 No matching RSVP records found.
               </td>
             </tr>`;
@@ -355,8 +539,90 @@
                 ${escapeHtml(r.family)}
               </td>
               <td class="py-3 px-4 text-xs text-royal-800/80">${escapeHtml(formattedDate)}</td>
+              <td class="py-3 px-4 text-right">
+                <button
+                  type="button"
+                  onclick="deleteEntry('${escapeHtml(r.fbKey || '')}', '${escapeHtml(r.id || '')}', '${escapeHtml(r.pangalan)}')"
+                  class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition cursor-pointer"
+                >
+                  Delete
+                </button>
+              </td>
             </tr>`;
         }).join('');
+      };
+
+      window.handleManualAdd = async function handleManualAdd(event) {
+        event.preventDefault();
+        const nameEl = document.getElementById('manualPangalan');
+        const respEl = document.getElementById('manualResponse');
+        const famEl = document.getElementById('manualFamily');
+        const btn = document.getElementById('manualSubmitBtn');
+
+        const pangalan = nameEl ? nameEl.value.trim() : '';
+        const response = respEl ? respEl.value : 'Oo';
+        const family = famEl ? famEl.value : 'SILVESTRE';
+
+        if (!pangalan) {
+          showAdminBanner('Please enter Pangalan before adding an entry.', true);
+          return;
+        }
+
+        try {
+          if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Adding...';
+          }
+
+          const entry = {
+            id: 'rsvp-manual-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
+            pangalan,
+            response,
+            family,
+            submittedAt: new Date().toISOString(),
+          };
+
+          const res = await fetch(FIREBASE_DB_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(entry),
+          });
+          if (!res.ok) throw new Error('Firebase POST failed');
+
+          if (nameEl) nameEl.value = '';
+          showAdminBanner(`Added "${pangalan}" to Firebase.`, false);
+          await refreshAllData();
+        } catch (_err) {
+          showAdminBanner('Unable to add entry to Firebase. Please check your connection.', true);
+        } finally {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = '+ Add Entry';
+          }
+        }
+      };
+
+      window.deleteEntry = async function deleteEntry(fbKey, entryId, pangalan) {
+        const confirmed = window.confirm(`Delete RSVP entry for "${pangalan || 'this guest'}"?`);
+        if (!confirmed) return;
+
+        try {
+          if (fbKey) {
+            const delUrl = `${FIREBASE_BASE_URL}/${encodeURIComponent(fbKey)}.json`;
+            const res = await fetch(delUrl, { method: 'DELETE' });
+            if (!res.ok) throw new Error('Firebase DELETE failed');
+          }
+          removeLocalRecord(entryId);
+          showAdminBanner(`Deleted "${pangalan || 'guest'}".`, false);
+          await refreshAllData();
+        } catch (_err) {
+          showAdminBanner('Failed to delete entry from Firebase. Please try again.', true);
+        }
+      };
+
+      window.printExcelTable = function printExcelTable() {
+        syncExcelPrintBody(lastFiltered);
+        window.print();
       };
 
       function setupLiveListeners() {
