@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silvestre - Gatmaitan Clan Reunion 2027 | Invitation &amp; RSVP</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cinzel, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              950: '#091938',
+              900: '#0f2957',
+              800: '#173a75',
+              700: '#234f9c',
+            },
+            gold: {
+              200: '#f5df9e',
+              300: '#e2b857',
+              400: '#e2b857',
+              500: '#c6922b',
+            },
+            ivory: {
+              50: '#fffdf9',
+              100: '#faf6ed',
+              200: '#f2e8d2',
+            },
+          },
+          fontFamily: {
+            display: ['"Cinzel"', '"Playfair Display"', 'Georgia', 'serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            gold: '0 14px 32px -8px rgba(198, 146, 43, 0.24), 0 4px 14px -2px rgba(15, 41, 87, 0.14)',
+            royal: '0 22px 48px -12px rgba(9, 25, 56, 0.38)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .reunion-ivory-bg {
+      background-color: #faf6ed;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(198, 146, 43, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 90% 16%, rgba(35, 79, 156, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%, rgba(226, 184, 87, 0.16) 0%, transparent 55%);
+    }
+
+    .gold-frame {
+      position: relative;
+      background-color: #fffdf9;
+      border: 2px solid #c6922b;
+      box-shadow:
+        inset 0 0 0 3px #fffdf9,
+        inset 0 0 0 5px rgba(23, 58, 117, 0.18),
+        inset 0 0 0 7px rgba(198, 146, 43, 0.35);
+    }
+
+    .gold-frame::before,
+    .gold-frame::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      pointer-events: none;
+    }
+
+    .gold-frame::before {
+      top: 8px;
+      left: 8px;
+      border-top: 2.5px solid #e2b857;
+      border-left: 2.5px solid #e2b857;
+      border-top-left-radius: 10px;
+    }
+
+    .gold-frame::after {
+      bottom: 8px;
+      right: 8px;
+      border-bottom: 2.5px solid #e2b857;
+      border-right: 2.5px solid #e2b857;
+      border-bottom-right-radius: 10px;
+    }
+
+    .choice-radio:checked + label {
+      background: linear-gradient(135deg, #0f2957 0%, #173a75 55%, #234f9c 100%);
+      color: #fffdf9;
+      border-color: #e2b857;
+      box-shadow: 0 10px 22px -5px rgba(15, 41, 87, 0.38);
+    }
+
+    .choice-radio:checked + label .choice-sub,
+    .choice-radio:checked + label .choice-accent {
+      color: #f5df9e;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeUp 0.3s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="reunion-ivory-bg text-royal-900 font-sans antialiased selection:bg-gold-200 selection:text-royal-950 min-h-screen flex flex-col">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-royal-900/95 backdrop-blur-md text-ivory-50 border-b-2 border-gold-500 shadow-royal">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-3 min-w-0 group">
+        <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-display font-bold text-sm flex items-center justify-center shrink-0 border border-gold-200 shadow">
+          SG
+        </span>
+        <div class="min-w-0">
+          <span class="block font-display font-bold text-sm sm:text-base text-ivory-50 group-hover:text-gold-200 transition truncate">
+            Silvestre - Gatmaitan Clan Reunion 2027
+          </span>
+          <span class="flex flex-wrap items-center gap-1.5 mt-0.5">
+            <span class="px-2.5 py-0.5 rounded-full bg-royal-950 border border-gold-400/70 text-gold-200 text-[10px] font-bold uppercase tracking-wider">
+              RECONNECT • REUNITED
+            </span>
+            <span class="px-2.5 py-0.5 rounded-full bg-royal-800 border border-gold-500/60 text-gold-200 text-[10px] font-semibold uppercase tracking-wider">
+              Sunday, January 03, 2027
+            </span>
+          </span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary Navigation" class="flex items-center gap-2 shrink-0">
+        <a
+          href="#rsvp-section"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-bold text-xs sm:text-sm border border-gold-200 shadow hover:brightness-105 transition shrink-0"
+        >
+          RSVP Now
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero & Tribute Portrait Section -->
+  <section id="top" class="relative overflow-hidden bg-gradient-to-b from-royal-900 via-royal-800 to-royal-700 text-ivory-50 pt-10 pb-14 sm:pt-14 sm:pb-20 border-b-4 border-gold-500">
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+
+        <div class="lg:col-span-7 text-center lg:text-left space-y-5">
+          <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-4 py-1.5 rounded-full bg-royal-950/75 border border-gold-400/75 text-gold-200 text-xs sm:text-sm font-bold tracking-wider uppercase shadow">
+            <span>✦</span>
+            <span>“Reconnect • Reunited”</span>
+            <span>•</span>
+            <span class="font-serif italic normal-case tracking-normal text-gold-300">Home Sweet Home</span>
+            <span>✦</span>
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-5xl font-bold leading-tight text-ivory-50 drop-shadow">
+            Silvestre - Gatmaitan
+            <span class="block font-serif italic text-2xl sm:text-4xl text-gold-300 mt-1">
+              Clan Reunion 2027
+            </span>
+          </h1>
+
+          <p class="font-serif italic text-lg sm:text-xl text-ivory-100/95 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            “Reconnect • Reunited” — Bringing our <span class="text-gold-200 font-semibold">Home Sweet Home</span> spirit to life as the Silvestre and Gatmaitan families gather on Sunday, January 03, 2027.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-left">
+            <div class="p-3.5 rounded-2xl bg-royal-950/75 border border-gold-400/55">
+              <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Date</div>
+              <div class="font-semibold text-sm text-ivory-50 mt-0.5">Sunday, January 03, 2027</div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-royal-950/75 border border-gold-400/55">
+              <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Arrival + Registration</div>
+              <div class="font-semibold text-sm text-ivory-50 mt-0.5">8:00 - 9:00 AM</div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-royal-950/75 border border-gold-400/55">
+              <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Program Starts</div>
+              <div class="font-semibold text-sm text-ivory-50 mt-0.5">10:00 AM</div>
+            </div>
+          </div>
+
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <a
+              href="#program-section"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-ivory-50 hover:bg-gold-200 text-royal-900 font-bold text-sm border border-gold-500 shadow transition"
+            >
+              <span>View Program Schedule</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Elder Couple Tribute Portrait Card -->
+        <div class="lg:col-span-5">
+          <div class="max-w-sm mx-auto rounded-3xl p-4 sm:p-5 gold-frame shadow-royal text-royal-900">
+            <div class="flex items-center justify-between gap-2 mb-2.5 px-1">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-500">
+                ✦ Honored Elders
+              </span>
+              <label
+                for="tributePhotoInput"
+                class="cursor-pointer inline-flex items-center gap-1.5 text-xs font-semibold text-royal-900 hover:text-royal-800 bg-ivory-200 hover:bg-gold-200 border border-gold-500/70 px-3 py-1 rounded-full transition"
+              >
+                <span>Change Tribute Photo</span>
+              </label>
+              <input
+                id="tributePhotoInput"
+                type="file"
+                accept="image/*"
+                class="hidden"
+                onchange="handleTributePhotoChange(event)"
+              />
+            </div>
+
+            <div class="relative aspect-[4/4.25] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-royal-700 via-royal-900 to-royal-950 border-2 border-gold-500 flex items-center justify-center">
+              <svg
+                id="tributeVectorFallback"
+                viewBox="0 0 400 425"
+                class="w-full h-full object-cover"
+                role="img"
+                aria-label="Warm vector illustration of the Silvestre and Gatmaitan elder couple"
+              >
+                <defs>
+                  <linearGradient id="bgSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#234f9c" />
+                    <stop offset="55%" stop-color="#0f2957" />
+                    <stop offset="100%" stop-color="#091938" />
+                  </linearGradient>
+                  <linearGradient id="goldBorder" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#f5df9e" />
+                    <stop offset="50%" stop-color="#e2b857" />
+                    <stop offset="100%" stop-color="#c6922b" />
+                  </linearGradient>
+                  <radialGradient id="haloGlow" cx="50%" cy="38%" r="45%">
+                    <stop offset="0%" stop-color="#f5df9e" stop-opacity="0.28" />
+                    <stop offset="100%" stop-color="#e2b857" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+
+                <rect width="400" height="425" fill="url(#bgSky)" />
+                <ellipse cx="200" cy="155" rx="155" ry="125" fill="url(#haloGlow)" />
+
+                <g>
+                  <circle cx="144" cy="156" r="41" fill="#f3d4b5" />
+                  <path d="M103 150 C104 112, 184 112, 185 150 C172 134, 116 134, 103 150 Z" fill="#2a2726" />
+                  <circle cx="131" cy="156" r="2.6" fill="#2a2726" />
+                  <circle cx="157" cy="156" r="2.6" fill="#2a2726" />
+                  <path d="M137 171 Q144 176 151 171" fill="none" stroke="#8a4b38" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M76 345 C80 248, 116 213, 144 213 C172 213, 206 248, 210 345 Z" fill="#7d2232" />
+                  <path d="M122 213 L144 246 L166 213" fill="none" stroke="#f5df9e" stroke-width="3" />
+                </g>
+
+                <g>
+                  <circle cx="256" cy="150" r="43" fill="#f6dec4" />
+                  <path d="M213 142 C215 103, 297 103, 299 142 C284 123, 228 123, 213 142 Z" fill="#f3f1eb" />
+                  <circle cx="242" cy="151" r="2.6" fill="#242220" />
+                  <circle cx="270" cy="151" r="2.6" fill="#242220" />
+                  <path d="M248 167 Q256 172 264 167" fill="none" stroke="#7c4b3a" stroke-width="2.2" stroke-linecap="round" />
+                  <path d="M188 345 C192 244, 226 208, 256 208 C286 208, 320 244, 324 345 Z" fill="#fffdf9" />
+                  <path d="M243 208 L256 254 L269 208" fill="none" stroke="#e2b857" stroke-width="2.5" />
+                </g>
+
+                <rect x="20" y="20" width="360" height="385" rx="22" fill="none" stroke="url(#goldBorder)" stroke-width="3" />
+                <rect x="28" y="352" width="344" height="42" rx="12" fill="#091938" stroke="url(#goldBorder)" stroke-width="1.5" />
+                <text x="200" y="378" text-anchor="middle" fill="#f5df9e" font-family="Cinzel, Georgia, serif" font-size="13.5" font-weight="700" letter-spacing="1.4">
+                  HOME SWEET HOME • 2027
+                </text>
+              </svg>
+
+              <img
+                id="tributePhotoPreview"
+                src=""
+                alt="Custom Family Tribute Portrait Preview"
+                class="hidden w-full h-full object-cover"
+              />
+            </div>
+
+            <p class="mt-3 text-center text-xs text-royal-800/85">
+              Optional: choose <span class="font-semibold">Change Tribute Photo</span> to preview a local photo anytime.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content: Full Program Schedule & RSVP Form -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-14">
+
+    <!-- Full Program Schedule Section -->
+    <section id="program-section" class="scroll-mt-24">
+      <div class="rounded-3xl p-6 sm:p-10 gold-frame shadow-gold">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <div class="inline-block px-4 py-1 rounded-full bg-royal-900 text-gold-200 border border-gold-400 text-xs font-bold uppercase tracking-widest">
+            SUNDAY, JANUARY 03, 2027
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-bold text-royal-900 mt-3">
+            Reunion Program
+          </h2>
+          <p class="font-serif italic text-lg text-royal-800 mt-1">
+            “Reconnect • Reunited”
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-7">
+          <div class="flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl bg-royal-900 text-ivory-50 border border-gold-500 shadow-sm">
+            <span class="font-semibold text-sm sm:text-base">Arrival + Registration</span>
+            <span class="font-bold text-gold-200 text-sm whitespace-nowrap">8:00 - 9:00 AM</span>
+          </div>
+          <div class="flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl bg-royal-900 text-ivory-50 border border-gold-500 shadow-sm">
+            <span class="font-semibold text-sm sm:text-base">Program Starts</span>
+            <span class="font-bold text-gold-200 text-sm whitespace-nowrap">10:00 AM</span>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <!-- I. PART I -->
+          <div class="rounded-2xl bg-ivory-100 border border-gold-500/65 overflow-hidden shadow-sm">
+            <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 px-5 py-3 flex items-center justify-between border-b border-gold-400">
+              <h3 class="font-display text-base sm:text-lg font-bold tracking-wide">I. PART I</h3>
+              <span class="text-xs font-semibold uppercase tracking-wider text-gold-200">Opening &amp; Fellowship</span>
+            </div>
+            <ul class="divide-y divide-gold-200 px-5 py-1 text-sm sm:text-base bg-ivory-50">
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Opening Prayer</span>
+                <span class="font-serif italic font-semibold text-royal-800">— Sister Elenita Reyes</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Welcome Address</span>
+                <span class="font-serif italic font-semibold text-royal-800">— Genie Gatmaitan</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Checking of Attendance per Family</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Family Roll Call</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Caroling Dance (Kids)</span>
+                <span class="text-xs text-royal-800/75">Kids Special</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Raffle Draw / Parlor Games (Kids, Adults)</span>
+                <span class="text-xs text-royal-800/75">Games &amp; Raffles</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- II. PART II -->
+          <div class="rounded-2xl bg-ivory-100 border border-gold-500/65 overflow-hidden shadow-sm">
+            <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gold-400">
+              <h3 class="font-display text-base sm:text-lg font-bold tracking-wide">II. PART II</h3>
+              <span class="text-xs sm:text-sm font-bold text-gold-200 bg-royal-950/70 px-3 py-0.5 rounded-full border border-gold-400/55">
+                11:45 AM - 12:45 PM
+              </span>
+            </div>
+            <ul class="divide-y divide-gold-200 px-5 py-1 text-sm sm:text-base bg-ivory-50">
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">11:45 AM - 12:45 PM</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Lunch Schedule</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Lunch Time</span>
+                <span class="text-xs text-royal-800/75">Shared Clan Meal</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Blessing of Foods</span>
+                <span class="font-serif italic font-semibold text-royal-800">— Nomer Gatmaitan</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- III. PART III -->
+          <div class="rounded-2xl bg-ivory-100 border border-gold-500/65 overflow-hidden shadow-sm">
+            <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gold-400">
+              <h3 class="font-display text-base sm:text-lg font-bold tracking-wide">III. PART III</h3>
+              <span class="text-xs sm:text-sm font-bold text-gold-200 bg-royal-950/70 px-3 py-0.5 rounded-full border border-gold-400/55">
+                1:00 - 3:00 PM
+              </span>
+            </div>
+            <ul class="divide-y divide-gold-200 px-5 py-1 text-sm sm:text-base bg-ivory-50">
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">1:00 - 3:00 PM</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Afternoon Program</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Raffles / Photo Booth</span>
+                <span class="text-xs text-royal-800/75">Keepsakes &amp; Prizes</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Photo op by Family &amp; as a whole clan</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Clan Portrait</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">
+                  Community Singing – <span class="font-serif italic text-royal-900">“If We Hold On Together”</span>
+                </span>
+                <span class="text-xs text-royal-800/75">Unity Song</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Words of Gratitude</span>
+                <span class="text-xs text-royal-800/75">Thank You</span>
+              </li>
+              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <span class="font-medium text-royal-950">Closing Prayer</span>
+                <span class="text-xs text-royal-800/75">Farewell Blessing</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <div class="inline-block px-8 py-2.5 rounded-full bg-gradient-to-r from-royal-900 via-royal-800 to-royal-900 border-2 border-gold-500 shadow">
+            <span class="font-serif italic font-bold text-xl sm:text-2xl text-gold-200">
+              Home Sweet Home
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Form Section (#rsvp-section) -->
+    <section id="rsvp-section" class="scroll-mt-24 max-w-2xl mx-auto">
+      <div class="rounded-3xl p-6 sm:p-10 gold-frame shadow-gold">
+        <div class="mb-6">
+          <div class="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">
+            ✦ Reconnect • Reunited • Sunday, January 03, 2027
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-royal-900">
+            RSVP Response Form
+          </h2>
+          <p class="text-sm text-royal-800/85 mt-1">
+            Please fill out your details below to confirm your response for the Silvestre - Gatmaitan Clan Reunion 2027.
+          </p>
+        </div>
+
+        <div
+          id="rsvpAlertBox"
+          class="hidden mb-5 px-4 py-3 rounded-2xl bg-red-50 border border-red-300 text-red-900 text-sm font-medium"
+          role="alert"
+        ></div>
+
+        <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" class="space-y-6" novalidate>
+          <!-- 1. Pangalan -->
+          <div>
+            <label for="pangalanInput" class="block font-serif text-xl font-bold text-royal-950 mb-2">
+              Pangalan <span class="text-red-600 font-sans" aria-hidden="true">*</span>
+            </label>
+            <input
+              id="pangalanInput"
+              name="pangalan"
+              type="text"
+              required
+              placeholder="Enter your full name"
+              oninput="clearFieldValidation('pangalanErr')"
+              class="w-full px-4 py-3.5 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 text-royal-950 placeholder:text-royal-800/45 focus:outline-none focus:border-royal-800 focus:ring-4 focus:ring-gold-200/75 transition text-base"
+            />
+            <p id="pangalanErr" class="hidden mt-1.5 text-xs sm:text-sm font-semibold text-red-700">
+              Please enter your Pangalan.
+            </p>
+          </div>
+
+          <!-- 2. Makakapunta ka ba? -->
+          <fieldset>
+            <legend class="block font-serif text-xl font-bold text-royal-950 mb-2.5">
+              Makakapunta ka ba? <span class="text-red-600 font-sans" aria-hidden="true">*</span>
+            </legend>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div>
+                <input
+                  id="responseOo"
+                  type="radio"
+                  name="response"
+                  value="Oo"
+                  class="sr-only choice-radio"
+                  onchange="clearFieldValidation('responseErr')"
+                />
+                <label
+                  for="responseOo"
+                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
+                >
+                  <div>
+                    <div class="font-bold text-base">Oo</div>
+                    <div class="choice-sub text-xs text-royal-800/75">Yes, I will attend</div>
+                  </div>
+                  <span class="choice-accent text-lg font-bold text-royal-800">✓</span>
+                </label>
+              </div>
+
+              <div>
+                <input
+                  id="responseHindi"
+                  type="radio"
+                  name="response"
+                  value="Hindi"
+                  class="sr-only choice-radio"
+                  onchange="clearFieldValidation('responseErr')"
+                />
+                <label
+                  for="responseHindi"
+                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
+                >
+                  <div>
+                    <div class="font-bold text-base">Hindi</div>
+                    <div class="choice-sub text-xs text-royal-800/75">Unable to attend</div>
+                  </div>
+                  <span class="choice-accent text-lg font-bold text-royal-800">✕</span>
+                </label>
+              </div>
+            </div>
+            <p id="responseErr" class="hidden mt-1.5 text-xs sm:text-sm font-semibold text-red-700">
+              Please select either “Oo” or “Hindi”.
+            </p>
+          </fieldset>
+
+          <!-- 3. Family -->
+          <fieldset>
+            <legend class="block font-serif text-xl font-bold text-royal-950 mb-2.5">
+              Family <span class="text-red-600 font-sans" aria-hidden="true">*</span>
+            </legend>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div>
+                <input
+                  id="familySilvestre"
+                  type="radio"
+                  name="family"
+                  value="SILVESTRE"
+                  class="sr-only choice-radio"
+                  onchange="clearFieldValidation('familyErr')"
+                />
+                <label
+                  for="familySilvestre"
+                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
+                >
+                  <div>
+                    <div class="font-display font-bold text-sm sm:text-base tracking-wide">SILVESTRE</div>
+                    <div class="choice-sub text-xs text-royal-800/75">Silvestre Family</div>
+                  </div>
+                  <span class="choice-accent text-gold-500 font-bold">✦</span>
+                </label>
+              </div>
+
+              <div>
+                <input
+                  id="familyGatmaitan"
+                  type="radio"
+                  name="family"
+                  value="GATMAITAN"
+                  class="sr-only choice-radio"
+                  onchange="clearFieldValidation('familyErr')"
+                />
+                <label
+                  for="familyGatmaitan"
+                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
+                >
+                  <div>
+                    <div class="font-display font-bold text-sm sm:text-base tracking-wide">GATMAITAN</div>
+                    <div class="choice-sub text-xs text-royal-800/75">Gatmaitan Family</div>
+                  </div>
+                  <span class="choice-accent text-gold-500 font-bold">✦</span>
+                </label>
+              </div>
+            </div>
+            <p id="familyErr" class="hidden mt-1.5 text-xs sm:text-sm font-semibold text-red-700">
+              Please select your Family (“SILVESTRE” or “GATMAITAN”).
+            </p>
+          </fieldset>
+
+          <div class="pt-2">
+            <button
+              id="submitRsvpBtn"
+              type="submit"
+              class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 hover:brightness-105 text-ivory-50 font-bold text-base tracking-wide border-2 border-gold-400 shadow-royal active:scale-[0.99] transition cursor-pointer"
+            >
+              Submit RSVP
+            </button>
+          </div>
+        </form>
+
+        <!-- Confirmation Banner -->
+        <div
+          id="rsvpConfirmationBanner"
+          class="hidden animate-fade-up rounded-2xl bg-gradient-to-br from-royal-950 via-royal-900 to-royal-800 text-ivory-50 p-6 sm:p-7 border-2 border-gold-400 shadow-royal"
+        >
+          <div class="flex items-center gap-3 mb-3">
+            <span class="w-11 h-11 rounded-full bg-gold-200 text-royal-950 flex items-center justify-center text-xl font-bold shrink-0">
+              ✓
+            </span>
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-gold-200">
+                RSVP Recorded
+              </div>
+              <h3 class="font-display text-xl sm:text-2xl font-bold text-ivory-50">
+                Maraming Salamat!
+              </h3>
+            </div>
+          </div>
+
+          <p id="confirmationSummary" class="text-sm sm:text-base text-ivory-100/95 mb-4"></p>
+
+          <div class="rounded-xl bg-royal-950/75 border border-gold-400/50 p-4 space-y-2 text-sm mb-5">
+            <div class="flex justify-between gap-3">
+              <span class="text-gold-200">Pangalan:</span>
+              <span id="summaryPangalan" class="font-semibold text-ivory-50 text-right"></span>
+            </div>
+            <div class="flex justify-between gap-3">
+              <span class="text-gold-200">Makakapunta ka ba?:</span>
+              <span id="summaryResponse" class="font-semibold text-ivory-50 text-right"></span>
+            </div>
+            <div class="flex justify-between gap-3">
+              <span class="text-gold-200">Family:</span>
+              <span id="summaryFamily" class="font-semibold text-ivory-50 text-right"></span>
+            </div>
+            <div class="flex justify-between gap-3">
+              <span class="text-gold-200">Submitted At:</span>
+              <span id="summarySubmittedAt" class="font-semibold text-ivory-50 text-right"></span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button
+              type="button"
+              onclick="resetRsvpForm()"
+              class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-bold text-sm shadow hover:brightness-105 transition cursor-pointer"
+            >
+              Submit Another Response
+            </button>
+            <a
+              href="admin.html"
+              class="flex-1 py-3 px-4 rounded-xl bg-ivory-50 hover:bg-gold-200 text-royal-900 font-bold text-sm text-center border border-gold-500 shadow transition flex items-center justify-center"
+            >
+              Open Admin Portal
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-royal-900 text-ivory-100 border-t-4 border-gold-500 py-7 px-4 text-center mt-auto">
+    <p class="font-display text-sm sm:text-base font-bold text-gold-200">
+      Silvestre - Gatmaitan Clan Reunion 2027
+    </p>
+    <p class="font-serif italic text-sm text-ivory-100/90 mt-1">
+      “Reconnect • Reunited” • Sunday, January 03, 2027 • Home Sweet Home
+    </p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const FIREBASE_DB_URL = 'https://reunion-2027-300cb-default-rtdb.asia-southeast1.firebasedatabase.app/rsvps.json';
+      const RSVP_STORAGE_KEY = 'silvestre_gatmaitan_rsvp_2027';
+      const RSVP_CHANNEL_NAME = 'silvestre_gatmaitan_rsvp_channel';
+      const RSVP_CUSTOM_EVENT = 'silvestre-gatmaitan-rsvp-submitted';
+
+      const fallbackStorage = new Map();
+      let broadcastChannel = null;
+
+      function getBroadcastChannel() {
+        if (broadcastChannel) return broadcastChannel;
+        try {
+          if (typeof window.BroadcastChannel === 'function') {
+            broadcastChannel = new window.BroadcastChannel(RSVP_CHANNEL_NAME);
+          }
+        } catch (_err) {
+          broadcastChannel = null;
+        }
+        return broadcastChannel;
+      }
+
+      function readStorageRaw(key) {
+        try {
+          return window.localStorage.getItem(key);
+        } catch (_err) {
+          return fallbackStorage.has(key) ? fallbackStorage.get(key) : null;
+        }
+      }
+
+      function writeStorageRaw(key, value) {
+        fallbackStorage.set(key, String(value));
+        try {
+          window.localStorage.setItem(key, String(value));
+          return true;
+        } catch (_err) {
+          return true;
+        }
+      }
+
+      function readRsvpList() {
+        try {
+          const raw = readStorageRaw(RSVP_STORAGE_KEY);
+          if (!raw) return [];
+          const parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (_err) {
+          return [];
+        }
+      }
+
+      function notifyOtherPages(entry, allEntries) {
+        const detail = {
+          type: 'rsvp_submitted',
+          key: RSVP_STORAGE_KEY,
+          entry,
+          count: Array.isArray(allEntries) ? allEntries.length : readRsvpList().length,
+          timestamp: Date.now(),
+        };
+
+        try {
+          const channel = getBroadcastChannel();
+          if (channel) channel.postMessage(detail);
+        } catch (_err) {}
+
+        try {
+          window.dispatchEvent(new CustomEvent(RSVP_CUSTOM_EVENT, { detail }));
+        } catch (_err) {}
+      }
+
+      function showAlert(message) {
+        const alertBox = document.getElementById('rsvpAlertBox');
+        if (!alertBox) return;
+        alertBox.textContent = message;
+        alertBox.classList.remove('hidden');
+      }
+
+      function hideAlert() {
+        const alertBox = document.getElementById('rsvpAlertBox');
+        if (!alertBox) return;
+        alertBox.textContent = '';
+        alertBox.classList.add('hidden');
+      }
+
+      window.clearFieldValidation = function clearFieldValidation(errorId) {
+        hideAlert();
+        if (errorId) {
+          const errEl = document.getElementById(errorId);
+          if (errEl) errEl.classList.add('hidden');
+        }
+      };
+
+      window.handleTributePhotoChange = function handleTributePhotoChange(event) {
+        try {
+          const file = event && event.target && event.target.files && event.target.files[0];
+          if (!file) return;
+
+          if (!file.type || !file.type.startsWith('image/')) {
+            showAlert('Please choose a valid image file for the tribute portrait preview.');
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onload = function (loadEvent) {
+            const dataUrl = loadEvent && loadEvent.target && loadEvent.target.result;
+            const previewImg = document.getElementById('tributePhotoPreview');
+            const vectorFallback = document.getElementById('tributeVectorFallback');
+            if (previewImg && typeof dataUrl === 'string') {
+              previewImg.src = dataUrl;
+              previewImg.classList.remove('hidden');
+              if (vectorFallback) vectorFallback.classList.add('hidden');
+              hideAlert();
+            }
+          };
+          reader.readAsDataURL(file);
+        } catch (_err) {
+          showAlert('Unable to preview the selected photo.');
+        }
+      };
+
+      window.handleRsvpSubmit = async function handleRsvpSubmit(event) {
+        event.preventDefault();
+        hideAlert();
+
+        const submitBtn = document.getElementById('submitRsvpBtn');
+
+        try {
+          const pangalanInput = document.getElementById('pangalanInput');
+          const pangalan = pangalanInput ? pangalanInput.value.trim() : '';
+
+          const selectedResponse = document.querySelector('input[name="response"]:checked');
+          const response = selectedResponse ? selectedResponse.value : '';
+
+          const selectedFamily = document.querySelector('input[name="family"]:checked');
+          const family = selectedFamily ? selectedFamily.value : '';
+
+          let isValid = true;
+          if (!pangalan) {
+            document.getElementById('pangalanErr')?.classList.remove('hidden');
+            isValid = false;
+          }
+          if (!response) {
+            document.getElementById('responseErr')?.classList.remove('hidden');
+            isValid = false;
+          }
+          if (!family) {
+            document.getElementById('familyErr')?.classList.remove('hidden');
+            isValid = false;
+          }
+
+          if (!isValid) {
+            showAlert('Please complete Pangalan, Makakapunta ka ba?, and Family (*) before submitting.');
+            return;
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Saving RSVP...';
+          }
+
+          const entry = {
+            id: 'rsvp-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+            pangalan,
+            response,
+            family,
+            submittedAt: new Date().toISOString(),
+          };
+
+          // Save to Firebase Realtime Database
+          const fbRes = await fetch(FIREBASE_DB_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(entry),
+          });
+
+          if (!fbRes.ok) {
+            throw new Error('Firebase save failed');
+          }
+
+          // Also mirror locally for instant offline access
+          const existing = readRsvpList();
+          existing.push(entry);
+          writeStorageRaw(RSVP_STORAGE_KEY, JSON.stringify(existing));
+          notifyOtherPages(entry, existing);
+
+          document.getElementById('summaryPangalan').textContent = entry.pangalan;
+          document.getElementById('summaryResponse').textContent = entry.response;
+          document.getElementById('summaryFamily').textContent = entry.family;
+          document.getElementById('summarySubmittedAt').textContent = new Date(entry.submittedAt).toLocaleString();
+          document.getElementById('confirmationSummary').textContent =
+            entry.response === 'Oo'
+              ? `Thank you, ${entry.pangalan}! Your attendance for Sunday, January 03, 2027 has been saved.`
+              : `Thank you for letting us know, ${entry.pangalan}. Your RSVP response has been saved.`;
+
+          const form = document.getElementById('rsvpForm');
+          const banner = document.getElementById('rsvpConfirmationBanner');
+          if (form) {
+            form.reset();
+            form.classList.add('hidden');
+          }
+          if (banner) {
+            banner.classList.remove('hidden');
+          }
+        } catch (_err) {
+          showAlert('Unable to save your RSVP right now. Please check your internet connection and try again.');
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit RSVP';
+          }
+        }
+      };
+
+      window.resetRsvpForm = function resetRsvpForm() {
+        hideAlert();
+        document.getElementById('pangalanErr')?.classList.add('hidden');
+        document.getElementById('responseErr')?.classList.add('hidden');
+        document.getElementById('familyErr')?.classList.add('hidden');
+
+        const form = document.getElementById('rsvpForm');
+        const banner = document.getElementById('rsvpConfirmationBanner');
+        if (form) {
+          form.reset();
+          form.classList.remove('hidden');
+        }
+        if (banner) {
+          banner.classList.add('hidden');
+        }
+        document.getElementById('pangalanInput')?.focus();
+      };
+    })();
+  </script>
+</body>
+</html>
