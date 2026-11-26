@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Silvestre - Gatmaitan Clan Reunion 2027 | Invitation &amp; RSVP</title>
+  <title>Admin Dashboard | Silvestre - Gatmaitan Clan Reunion 2027</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts: Cinzel, Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -21,32 +18,14 @@
       theme: {
         extend: {
           colors: {
-            royal: {
-              950: '#091938',
-              900: '#0f2957',
-              800: '#173a75',
-              700: '#234f9c',
-            },
-            gold: {
-              200: '#f5df9e',
-              300: '#e2b857',
-              400: '#e2b857',
-              500: '#c6922b',
-            },
-            ivory: {
-              50: '#fffdf9',
-              100: '#faf6ed',
-              200: '#f2e8d2',
-            },
+            royal: { 950: '#091938', 900: '#0f2957', 800: '#173a75', 700: '#234f9c' },
+            gold: { 200: '#f5df9e', 300: '#e2b857', 400: '#e2b857', 500: '#c6922b' },
+            ivory: { 50: '#fffdf9', 100: '#faf6ed', 200: '#f2e8d2' },
           },
           fontFamily: {
             display: ['"Cinzel"', '"Playfair Display"', 'Georgia', 'serif'],
             serif: ['"Playfair Display"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-          },
-          boxShadow: {
-            gold: '0 14px 32px -8px rgba(198, 146, 43, 0.24), 0 4px 14px -2px rgba(15, 41, 87, 0.14)',
-            royal: '0 22px 48px -12px rgba(9, 25, 56, 0.38)',
           },
         },
       },
@@ -58,1242 +37,340 @@
       background-color: #faf6ed;
       background-image:
         radial-gradient(circle at 10% 10%, rgba(198, 146, 43, 0.14) 0%, transparent 45%),
-        radial-gradient(circle at 90% 16%, rgba(35, 79, 156, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 50% 100%, rgba(226, 184, 87, 0.16) 0%, transparent 55%);
+        radial-gradient(circle at 90% 16%, rgba(35, 79, 156, 0.08) 0%, transparent 45%);
     }
-
     .gold-frame {
-      position: relative;
       background-color: #fffdf9;
       border: 2px solid #c6922b;
-      box-shadow:
-        inset 0 0 0 3px #fffdf9,
-        inset 0 0 0 5px rgba(23, 58, 117, 0.18),
-        inset 0 0 0 7px rgba(198, 146, 43, 0.35);
+      box-shadow: inset 0 0 0 3px #fffdf9, inset 0 0 0 5px rgba(23, 58, 117, 0.16);
     }
-
-    .gold-frame::before,
-    .gold-frame::after {
-      content: '';
-      position: absolute;
-      width: 22px;
-      height: 22px;
-      pointer-events: none;
-    }
-
-    .gold-frame::before {
-      top: 8px;
-      left: 8px;
-      border-top: 2.5px solid #e2b857;
-      border-left: 2.5px solid #e2b857;
-      border-top-left-radius: 10px;
-    }
-
-    .gold-frame::after {
-      bottom: 8px;
-      right: 8px;
-      border-bottom: 2.5px solid #e2b857;
-      border-right: 2.5px solid #e2b857;
-      border-bottom-right-radius: 10px;
-    }
-
-    .choice-radio:checked + label {
-      background: linear-gradient(135deg, #0f2957 0%, #173a75 55%, #234f9c 100%);
-      color: #fffdf9;
-      border-color: #e2b857;
-      box-shadow: 0 10px 22px -5px rgba(15, 41, 87, 0.38);
-    }
-
-    .choice-radio:checked + label .choice-sub,
-    .choice-radio:checked + label .choice-accent {
-      color: #f5df9e;
-    }
-
-    /* Excel-style spreadsheet grid for printable report */
-    .excel-print-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: Calibri, Arial, sans-serif;
-      font-size: 11pt;
-      color: #000000;
-      background: #ffffff;
-    }
-
-    .excel-print-table th,
-    .excel-print-table td {
-      border: 1px solid #8c8c8c;
-      padding: 6px 8px;
-      text-align: left;
-      vertical-align: middle;
-    }
-
-    .excel-print-table thead th {
-      background-color: #d9e1f2;
-      font-weight: 700;
-      color: #000000;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-fade-up {
-      animation: fadeUp 0.3s ease-out forwards;
-    }
-
     @media print {
-      body {
-        background: #ffffff !important;
-        margin: 0 !important;
-        padding: 12px !important;
-      }
-      body > *:not(#excelPrintOnlyView) {
-        display: none !important;
-      }
-      #excelPrintOnlyView {
-        display: block !important;
-      }
+      body { background: #fff !important; color: #000 !important; }
+      .no-print { display: none !important; }
+      .gold-frame { border: 1px solid #999 !important; box-shadow: none !important; }
     }
   </style>
 </head>
-<body class="reunion-ivory-bg text-royal-900 font-sans antialiased selection:bg-gold-200 selection:text-royal-950 min-h-screen flex flex-col">
+<body class="reunion-ivory-bg text-royal-900 font-sans antialiased min-h-screen flex flex-col">
 
-  <!-- Top Navigation Bar -->
-  <header class="sticky top-0 z-40 bg-royal-900/95 backdrop-blur-md text-ivory-50 border-b-2 border-gold-500 shadow-royal">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
-      <a href="#top" class="flex items-center gap-3 min-w-0 group">
-        <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-display font-bold text-sm flex items-center justify-center shrink-0 border border-gold-200 shadow">
+  <header class="no-print bg-royal-900 text-ivory-50 border-b-2 border-gold-500 py-3.5 px-4">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-display font-bold text-xs flex items-center justify-center border border-gold-200">
           SG
         </span>
-        <div class="min-w-0">
-          <span class="block font-display font-bold text-sm sm:text-base text-ivory-50 group-hover:text-gold-200 transition truncate">
-            Silvestre - Gatmaitan Clan Reunion 2027
-          </span>
-          <span class="flex flex-wrap items-center gap-1.5 mt-0.5">
-            <span class="px-2.5 py-0.5 rounded-full bg-royal-950 border border-gold-400/70 text-gold-200 text-[10px] font-bold uppercase tracking-wider">
-              RECONNECT • REUNITED
-            </span>
-            <span class="px-2.5 py-0.5 rounded-full bg-royal-800 border border-gold-500/60 text-gold-200 text-[10px] font-semibold uppercase tracking-wider">
-              Sunday, January 03, 2027
-            </span>
-          </span>
+        <div>
+          <div class="font-display font-bold text-sm sm:text-base">Clan Reunion Admin Dashboard</div>
+          <div class="text-[11px] text-gold-200">Sunday, January 03, 2027 • “Reconnect • Reunited”</div>
         </div>
+      </div>
+      <a
+        href="index.html"
+        class="px-3.5 py-1.5 rounded-full bg-ivory-50 text-royal-900 font-bold text-xs border border-gold-500 hover:bg-gold-200 transition"
+      >
+        ← Back to Invitation
       </a>
-
-      <nav aria-label="Primary Navigation" class="flex items-center gap-2 shrink-0">
-        <a
-          href="#organizer-section"
-          class="inline-flex items-center justify-center px-3.5 py-2 rounded-full bg-royal-950 hover:bg-royal-800 text-gold-200 font-semibold text-xs sm:text-sm border border-gold-400/70 transition shrink-0"
-        >
-          Organizer
-        </a>
-        <a
-          href="#rsvp-section"
-          class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-bold text-xs sm:text-sm border border-gold-200 shadow hover:brightness-105 transition shrink-0"
-        >
-          RSVP Now
-        </a>
-      </nav>
     </div>
   </header>
 
-  <!-- Hero & Tribute Portrait Section -->
-  <section id="top" class="relative overflow-hidden bg-gradient-to-b from-royal-900 via-royal-800 to-royal-700 text-ivory-50 pt-10 pb-14 sm:pt-14 sm:pb-20 border-b-4 border-gold-500">
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-        <div class="lg:col-span-7 text-center lg:text-left space-y-5">
-          <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-4 py-1.5 rounded-full bg-royal-950/75 border border-gold-400/75 text-gold-200 text-xs sm:text-sm font-bold tracking-wider uppercase shadow">
-            <span>✦</span>
-            <span>“Reconnect • Reunited”</span>
-            <span>•</span>
-            <span class="font-serif italic normal-case tracking-normal text-gold-300">Home Sweet Home</span>
-            <span>✦</span>
-          </div>
+    <!-- Passcode Lock View -->
+    <div id="lockScreen" class="max-w-md mx-auto mt-10 rounded-3xl p-6 sm:p-8 gold-frame">
+      <div class="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">Organizer Access</div>
+      <h1 class="font-display text-2xl font-bold text-royal-900">Admin Sign In</h1>
+      <p class="text-sm text-royal-800/80 mt-1 mb-5">
+        Enter your organizer passcode to view responses and print the clan report.
+      </p>
 
-          <h1 class="font-display text-3xl sm:text-5xl font-bold leading-tight text-ivory-50 drop-shadow">
-            Silvestre - Gatmaitan
-            <span class="block font-serif italic text-2xl sm:text-4xl text-gold-300 mt-1">
-              Clan Reunion 2027
-            </span>
-          </h1>
-
-          <p class="font-serif italic text-lg sm:text-xl text-ivory-100/95 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            “Reconnect • Reunited” — Bringing our <span class="text-gold-200 font-semibold">Home Sweet Home</span> spirit to life as the Silvestre and Gatmaitan families gather on Sunday, January 03, 2027.
-          </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-left">
-            <div class="p-3.5 rounded-2xl bg-royal-950/75 border border-gold-400/55">
-              <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Date</div>
-              <div class="font-semibold text-sm text-ivory-50 mt-0.5">Sunday, January 03, 2027</div>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-royal-950/75 border border-gold-400/55">
-              <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Arrival + Registration</div>
-              <div class="font-semibold text-sm text-ivory-50 mt-0.5">8:00 - 9:00 AM</div>
-            </div>
-
-            <div class="p-3.5 rounded-2xl bg-royal-950/75 border border-gold-400/55">
-              <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Program Starts</div>
-              <div class="font-semibold text-sm text-ivory-50 mt-0.5">10:00 AM</div>
-            </div>
-          </div>
-
-          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-            <a
-              href="#program-section"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-ivory-50 hover:bg-gold-200 text-royal-900 font-bold text-sm border border-gold-500 shadow transition"
-            >
-              <span>View Program Schedule</span>
-              <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Elder Couple Tribute Portrait Card -->
-        <div class="lg:col-span-5">
-          <div class="max-w-sm mx-auto rounded-3xl p-4 sm:p-5 gold-frame shadow-royal text-royal-900">
-            <div class="flex items-center justify-between gap-2 mb-2.5 px-1">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-500">
-                ✦ Honored Elders
-              </span>
-            </div>
-
-            <div class="relative aspect-[4/4.25] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-royal-700 via-royal-900 to-royal-950 border-2 border-gold-500 flex items-center justify-center">
-              <svg
-                id="tributeVectorFallback"
-                viewBox="0 0 400 425"
-                class="w-full h-full object-cover"
-                role="img"
-                aria-label="Warm vector illustration of the Silvestre and Gatmaitan elder couple"
-              >
-                <defs>
-                  <linearGradient id="bgSky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#234f9c" />
-                    <stop offset="55%" stop-color="#0f2957" />
-                    <stop offset="100%" stop-color="#091938" />
-                  </linearGradient>
-                  <linearGradient id="goldBorder" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#f5df9e" />
-                    <stop offset="50%" stop-color="#e2b857" />
-                    <stop offset="100%" stop-color="#c6922b" />
-                  </linearGradient>
-                  <radialGradient id="haloGlow" cx="50%" cy="38%" r="45%">
-                    <stop offset="0%" stop-color="#f5df9e" stop-opacity="0.28" />
-                    <stop offset="100%" stop-color="#e2b857" stop-opacity="0" />
-                  </radialGradient>
-                </defs>
-
-                <rect width="400" height="425" fill="url(#bgSky)" />
-                <ellipse cx="200" cy="155" rx="155" ry="125" fill="url(#haloGlow)" />
-
-                <g>
-                  <circle cx="144" cy="156" r="41" fill="#f3d4b5" />
-                  <path d="M103 150 C104 112, 184 112, 185 150 C172 134, 116 134, 103 150 Z" fill="#2a2726" />
-                  <circle cx="131" cy="156" r="2.6" fill="#2a2726" />
-                  <circle cx="157" cy="156" r="2.6" fill="#2a2726" />
-                  <path d="M137 171 Q144 176 151 171" fill="none" stroke="#8a4b38" stroke-width="2.2" stroke-linecap="round" />
-                  <path d="M76 345 C80 248, 116 213, 144 213 C172 213, 206 248, 210 345 Z" fill="#7d2232" />
-                  <path d="M122 213 L144 246 L166 213" fill="none" stroke="#f5df9e" stroke-width="3" />
-                </g>
-
-                <g>
-                  <circle cx="256" cy="150" r="43" fill="#f6dec4" />
-                  <path d="M213 142 C215 103, 297 103, 299 142 C284 123, 228 123, 213 142 Z" fill="#f3f1eb" />
-                  <circle cx="242" cy="151" r="2.6" fill="#242220" />
-                  <circle cx="270" cy="151" r="2.6" fill="#242220" />
-                  <path d="M248 167 Q256 172 264 167" fill="none" stroke="#7c4b3a" stroke-width="2.2" stroke-linecap="round" />
-                  <path d="M188 345 C192 244, 226 208, 256 208 C286 208, 320 244, 324 345 Z" fill="#fffdf9" />
-                  <path d="M243 208 L256 254 L269 208" fill="none" stroke="#e2b857" stroke-width="2.5" />
-                </g>
-
-                <rect x="20" y="20" width="360" height="385" rx="22" fill="none" stroke="url(#goldBorder)" stroke-width="3" />
-                <rect x="28" y="352" width="344" height="42" rx="12" fill="#091938" stroke="url(#goldBorder)" stroke-width="1.5" />
-                <text x="200" y="378" text-anchor="middle" fill="#f5df9e" font-family="Cinzel, Georgia, serif" font-size="13.5" font-weight="700" letter-spacing="1.4">
-                  HOME SWEET HOME • 2027
-                </text>
-              </svg>
-            </div>
-
-            <p class="mt-3 text-center text-xs text-royal-800/85">
-              In loving tribute to our honored elders • Silvestre &amp; Gatmaitan
-            </p>
-          </div>
-        </div>
-
-      </div>
+      <label for="passcodeInput" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1.5">
+        Passcode
+      </label>
+      <input
+        id="passcodeInput"
+        type="password"
+        placeholder="Enter passcode"
+        class="w-full px-4 py-3 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 text-royal-950 focus:outline-none focus:border-royal-800"
+      />
+      <p id="passcodeErr" class="hidden text-xs font-semibold text-red-700 mt-2">
+        Incorrect passcode. Please try again.
+      </p>
+      <button
+        type="button"
+        onclick="unlockDashboard()"
+        class="w-full mt-4 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 font-bold text-sm border border-gold-400 shadow cursor-pointer"
+      >
+        Open Dashboard
+      </button>
     </div>
-  </section>
 
-  <!-- Main Content: Full Program Schedule, RSVP Form & Organizer Manager -->
-  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-14">
+    <!-- Dashboard View -->
+    <div id="dashboardContent" class="hidden space-y-6">
 
-    <!-- Full Program Schedule Section -->
-    <section id="program-section" class="scroll-mt-24">
-      <div class="rounded-3xl p-6 sm:p-10 gold-frame shadow-gold">
-        <div class="text-center max-w-2xl mx-auto mb-8">
-          <div class="inline-block px-4 py-1 rounded-full bg-royal-900 text-gold-200 border border-gold-400 text-xs font-bold uppercase tracking-widest">
-            SUNDAY, JANUARY 03, 2027
-          </div>
-          <h2 class="font-display text-2xl sm:text-4xl font-bold text-royal-900 mt-3">
-            Reunion Program
-          </h2>
-          <p class="font-serif italic text-lg text-royal-800 mt-1">
-            “Reconnect • Reunited”
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="font-display text-2xl sm:text-3xl font-bold text-royal-900">
+            RSVP Report &amp; Summary
+          </h1>
+          <p id="syncStatus" class="text-xs sm:text-sm text-royal-800/80 mt-0.5">
+            Silvestre - Gatmaitan Clan Reunion 2027
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-7">
-          <div class="flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl bg-royal-900 text-ivory-50 border border-gold-500 shadow-sm">
-            <span class="font-semibold text-sm sm:text-base">Arrival + Registration</span>
-            <span class="font-bold text-gold-200 text-sm whitespace-nowrap">8:00 - 9:00 AM</span>
-          </div>
-          <div class="flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl bg-royal-900 text-ivory-50 border border-gold-500 shadow-sm">
-            <span class="font-semibold text-sm sm:text-base">Program Starts</span>
-            <span class="font-bold text-gold-200 text-sm whitespace-nowrap">10:00 AM</span>
-          </div>
+        <div class="no-print flex flex-wrap gap-2">
+          <button
+            type="button"
+            onclick="refreshAllData()"
+            class="px-4 py-2.5 rounded-xl bg-ivory-50 hover:bg-gold-200 text-royal-900 font-bold text-xs sm:text-sm border border-gold-500 transition cursor-pointer"
+          >
+            ↻ Refresh
+          </button>
+          <button
+            type="button"
+            onclick="window.print()"
+            class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 font-bold text-xs sm:text-sm border border-gold-400 shadow transition cursor-pointer"
+          >
+            🖨 Print Report
+          </button>
         </div>
+      </div>
 
-        <div class="space-y-6">
-          <!-- I. PART I -->
-          <div class="rounded-2xl bg-ivory-100 border border-gold-500/65 overflow-hidden shadow-sm">
-            <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 px-5 py-3 flex items-center justify-between border-b border-gold-400">
-              <h3 class="font-display text-base sm:text-lg font-bold tracking-wide">I. PART I</h3>
-              <span class="text-xs font-semibold uppercase tracking-wider text-gold-200">Opening &amp; Fellowship</span>
-            </div>
-            <ul class="divide-y divide-gold-200 px-5 py-1 text-sm sm:text-base bg-ivory-50">
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Opening Prayer</span>
-                <span class="font-serif italic font-semibold text-royal-800">— Sister Elenita Reyes</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Welcome Address</span>
-                <span class="font-serif italic font-semibold text-royal-800">— Genie Gatmaitan</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Checking of Attendance per Family</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Family Roll Call</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Caroling Dance (Kids)</span>
-                <span class="text-xs text-royal-800/75">Kids Special</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Raffle Draw / Parlor Games (Kids, Adults)</span>
-                <span class="text-xs text-royal-800/75">Games &amp; Raffles</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- II. PART II -->
-          <div class="rounded-2xl bg-ivory-100 border border-gold-500/65 overflow-hidden shadow-sm">
-            <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gold-400">
-              <h3 class="font-display text-base sm:text-lg font-bold tracking-wide">II. PART II</h3>
-              <span class="text-xs sm:text-sm font-bold text-gold-200 bg-royal-950/70 px-3 py-0.5 rounded-full border border-gold-400/55">
-                11:45 AM - 12:45 PM
-              </span>
-            </div>
-            <ul class="divide-y divide-gold-200 px-5 py-1 text-sm sm:text-base bg-ivory-50">
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">11:45 AM - 12:45 PM</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Lunch Schedule</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Lunch Time</span>
-                <span class="text-xs text-royal-800/75">Shared Clan Meal</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Blessing of Foods</span>
-                <span class="font-serif italic font-semibold text-royal-800">— Nomer Gatmaitan</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- III. PART III -->
-          <div class="rounded-2xl bg-ivory-100 border border-gold-500/65 overflow-hidden shadow-sm">
-            <div class="bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-gold-400">
-              <h3 class="font-display text-base sm:text-lg font-bold tracking-wide">III. PART III</h3>
-              <span class="text-xs sm:text-sm font-bold text-gold-200 bg-royal-950/70 px-3 py-0.5 rounded-full border border-gold-400/55">
-                1:00 - 3:00 PM
-              </span>
-            </div>
-            <ul class="divide-y divide-gold-200 px-5 py-1 text-sm sm:text-base bg-ivory-50">
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">1:00 - 3:00 PM</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Afternoon Program</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Raffles / Photo Booth</span>
-                <span class="text-xs text-royal-800/75">Keepsakes &amp; Prizes</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Photo op by Family &amp; as a whole clan</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gold-500">Clan Portrait</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">
-                  Community Singing – <span class="font-serif italic text-royal-900">“If We Hold On Together”</span>
-                </span>
-                <span class="text-xs text-royal-800/75">Unity Song</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Words of Gratitude</span>
-                <span class="text-xs text-royal-800/75">Thank You</span>
-              </li>
-              <li class="py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <span class="font-medium text-royal-950">Closing Prayer</span>
-                <span class="text-xs text-royal-800/75">Farewell Blessing</span>
-              </li>
-            </ul>
-          </div>
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div class="rounded-2xl p-4 gold-frame">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-royal-800/75">Total Responses</div>
+          <div id="countTotal" class="font-display text-2xl sm:text-3xl font-bold text-royal-950 mt-1">0</div>
         </div>
-
-        <div class="mt-8 text-center">
-          <div class="inline-block px-8 py-2.5 rounded-full bg-gradient-to-r from-royal-900 via-royal-800 to-royal-900 border-2 border-gold-500 shadow">
-            <span class="font-serif italic font-bold text-xl sm:text-2xl text-gold-200">
-              Home Sweet Home
-            </span>
+        <div class="rounded-2xl p-4 gold-frame">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-emerald-800">Attending (“Oo”)</div>
+          <div id="countOo" class="font-display text-2xl sm:text-3xl font-bold text-emerald-700 mt-1">0</div>
+        </div>
+        <div class="rounded-2xl p-4 gold-frame">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-red-800">Not Attending (“Hindi”)</div>
+          <div id="countHindi" class="font-display text-2xl sm:text-3xl font-bold text-red-700 mt-1">0</div>
+        </div>
+        <div class="rounded-2xl p-4 gold-frame">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-gold-500">By Family</div>
+          <div class="text-xs sm:text-sm font-bold text-royal-950 mt-2 space-y-0.5">
+            <div>SILVESTRE: <span id="countSilvestre">0</span></div>
+            <div>GATMAITAN: <span id="countGatmaitan">0</span></div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- RSVP Form Section (#rsvp-section) -->
-    <section id="rsvp-section" class="scroll-mt-24 max-w-2xl mx-auto">
-      <div class="rounded-3xl p-6 sm:p-10 gold-frame shadow-gold">
-        <div class="mb-6">
-          <div class="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">
-            ✦ Reconnect • Reunited • Sunday, January 03, 2027
-          </div>
-          <h2 class="font-display text-2xl sm:text-3xl font-bold text-royal-900">
-            RSVP Response Form
-          </h2>
-          <p class="text-sm text-royal-800/85 mt-1">
-            Please fill out your details below to confirm your response for the Silvestre - Gatmaitan Clan Reunion 2027.
-          </p>
-        </div>
-
-        <div
-          id="rsvpAlertBox"
-          class="hidden mb-5 px-4 py-3 rounded-2xl bg-red-50 border border-red-300 text-red-900 text-sm font-medium"
-          role="alert"
-        ></div>
-
-        <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" class="space-y-6" novalidate>
-          <!-- 1. Pangalan -->
-          <div>
-            <label for="pangalanInput" class="block font-serif text-xl font-bold text-royal-950 mb-2">
-              Pangalan <span class="text-red-600 font-sans" aria-hidden="true">*</span>
-            </label>
-            <input
-              id="pangalanInput"
-              name="pangalan"
-              type="text"
-              required
-              placeholder="Enter your full name"
-              oninput="clearFieldValidation('pangalanErr')"
-              class="w-full px-4 py-3.5 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 text-royal-950 placeholder:text-royal-800/45 focus:outline-none focus:border-royal-800 focus:ring-4 focus:ring-gold-200/75 transition text-base"
-            />
-            <p id="pangalanErr" class="hidden mt-1.5 text-xs sm:text-sm font-semibold text-red-700">
-              Please enter your Pangalan.
-            </p>
-          </div>
-
-          <!-- 2. Makakapunta ka ba? -->
-          <fieldset>
-            <legend class="block font-serif text-xl font-bold text-royal-950 mb-2.5">
-              Makakapunta ka ba? <span class="text-red-600 font-sans" aria-hidden="true">*</span>
-            </legend>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div>
-                <input
-                  id="responseOo"
-                  type="radio"
-                  name="response"
-                  value="Oo"
-                  class="sr-only choice-radio"
-                  onchange="clearFieldValidation('responseErr')"
-                />
-                <label
-                  for="responseOo"
-                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
-                >
-                  <div>
-                    <div class="font-bold text-base">Oo</div>
-                    <div class="choice-sub text-xs text-royal-800/75">Yes, I will attend</div>
-                  </div>
-                  <span class="choice-accent text-lg font-bold text-royal-800">✓</span>
-                </label>
-              </div>
-
-              <div>
-                <input
-                  id="responseHindi"
-                  type="radio"
-                  name="response"
-                  value="Hindi"
-                  class="sr-only choice-radio"
-                  onchange="clearFieldValidation('responseErr')"
-                />
-                <label
-                  for="responseHindi"
-                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
-                >
-                  <div>
-                    <div class="font-bold text-base">Hindi</div>
-                    <div class="choice-sub text-xs text-royal-800/75">Unable to attend</div>
-                  </div>
-                  <span class="choice-accent text-lg font-bold text-royal-800">✕</span>
-                </label>
-              </div>
-            </div>
-            <p id="responseErr" class="hidden mt-1.5 text-xs sm:text-sm font-semibold text-red-700">
-              Please select either “Oo” or “Hindi”.
-            </p>
-          </fieldset>
-
-          <!-- 3. Family -->
-          <fieldset>
-            <legend class="block font-serif text-xl font-bold text-royal-950 mb-2.5">
-              Family <span class="text-red-600 font-sans" aria-hidden="true">*</span>
-            </legend>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div>
-                <input
-                  id="familySilvestre"
-                  type="radio"
-                  name="family"
-                  value="SILVESTRE"
-                  class="sr-only choice-radio"
-                  onchange="clearFieldValidation('familyErr')"
-                />
-                <label
-                  for="familySilvestre"
-                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
-                >
-                  <div>
-                    <div class="font-display font-bold text-sm sm:text-base tracking-wide">SILVESTRE</div>
-                    <div class="choice-sub text-xs text-royal-800/75">Silvestre Family</div>
-                  </div>
-                  <span class="choice-accent text-gold-500 font-bold">✦</span>
-                </label>
-              </div>
-
-              <div>
-                <input
-                  id="familyGatmaitan"
-                  type="radio"
-                  name="family"
-                  value="GATMAITAN"
-                  class="sr-only choice-radio"
-                  onchange="clearFieldValidation('familyErr')"
-                />
-                <label
-                  for="familyGatmaitan"
-                  class="flex items-center justify-between p-4 rounded-2xl bg-ivory-50 border-2 border-gold-500/75 hover:border-royal-800 cursor-pointer transition select-none"
-                >
-                  <div>
-                    <div class="font-display font-bold text-sm sm:text-base tracking-wide">GATMAITAN</div>
-                    <div class="choice-sub text-xs text-royal-800/75">Gatmaitan Family</div>
-                  </div>
-                  <span class="choice-accent text-gold-500 font-bold">✦</span>
-                </label>
-              </div>
-            </div>
-            <p id="familyErr" class="hidden mt-1.5 text-xs sm:text-sm font-semibold text-red-700">
-              Please select your Family (“SILVESTRE” or “GATMAITAN”).
-            </p>
-          </fieldset>
-
-          <div class="pt-2">
-            <button
-              id="submitRsvpBtn"
-              type="submit"
-              class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 hover:brightness-105 text-ivory-50 font-bold text-base tracking-wide border-2 border-gold-400 shadow-royal active:scale-[0.99] transition cursor-pointer"
-            >
-              Submit RSVP
-            </button>
-          </div>
-        </form>
-
-        <!-- Confirmation Banner -->
-        <div
-          id="rsvpConfirmationBanner"
-          class="hidden animate-fade-up rounded-2xl bg-gradient-to-br from-royal-950 via-royal-900 to-royal-800 text-ivory-50 p-6 sm:p-7 border-2 border-gold-400 shadow-royal"
+      <!-- Filters -->
+      <div class="no-print rounded-2xl p-4 gold-frame grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <input
+          id="searchName"
+          type="text"
+          placeholder="Search Pangalan..."
+          oninput="renderRows()"
+          class="px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-sm text-royal-950 focus:outline-none focus:border-royal-800"
+        />
+        <select
+          id="filterResponse"
+          onchange="renderRows()"
+          class="px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-sm text-royal-950 focus:outline-none focus:border-royal-800"
         >
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-11 h-11 rounded-full bg-gold-200 text-royal-950 flex items-center justify-center text-xl font-bold shrink-0">
-              ✓
-            </span>
-            <div>
-              <div class="text-xs font-bold uppercase tracking-widest text-gold-200">
-                RSVP Recorded
-              </div>
-              <h3 class="font-display text-xl sm:text-2xl font-bold text-ivory-50">
-                Maraming Salamat!
-              </h3>
-            </div>
-          </div>
+          <option value="ALL">All Responses (Oo &amp; Hindi)</option>
+          <option value="Oo">Oo (Attending)</option>
+          <option value="Hindi">Hindi (Not Attending)</option>
+        </select>
+        <select
+          id="filterFamily"
+          onchange="renderRows()"
+          class="px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-sm text-royal-950 focus:outline-none focus:border-royal-800"
+        >
+          <option value="ALL">All Families</option>
+          <option value="SILVESTRE">SILVESTRE</option>
+          <option value="GATMAITAN">GATMAITAN</option>
+        </select>
+      </div>
 
-          <p id="confirmationSummary" class="text-sm sm:text-base text-ivory-100/95 mb-4"></p>
-
-          <div class="rounded-xl bg-royal-950/75 border border-gold-400/50 p-4 space-y-2 text-sm mb-5">
-            <div class="flex justify-between gap-3">
-              <span class="text-gold-200">Pangalan:</span>
-              <span id="summaryPangalan" class="font-semibold text-ivory-50 text-right"></span>
-            </div>
-            <div class="flex justify-between gap-3">
-              <span class="text-gold-200">Makakapunta ka ba?:</span>
-              <span id="summaryResponse" class="font-semibold text-ivory-50 text-right"></span>
-            </div>
-            <div class="flex justify-between gap-3">
-              <span class="text-gold-200">Family:</span>
-              <span id="summaryFamily" class="font-semibold text-ivory-50 text-right"></span>
-            </div>
-            <div class="flex justify-between gap-3">
-              <span class="text-gold-200">Submitted At:</span>
-              <span id="summarySubmittedAt" class="font-semibold text-ivory-50 text-right"></span>
-            </div>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-3">
-            <button
-              type="button"
-              onclick="resetRsvpForm()"
-              class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-bold text-sm shadow hover:brightness-105 transition cursor-pointer"
-            >
-              Submit Another Response
-            </button>
-            <a
-              href="#organizer-section"
-              class="flex-1 py-3 px-4 rounded-xl bg-ivory-50 hover:bg-gold-200 text-royal-900 font-bold text-sm text-center border border-gold-500 shadow transition flex items-center justify-center"
-            >
-              Open Organizer Manager
-            </a>
-          </div>
+      <!-- Printable Guest Table -->
+      <div class="rounded-3xl gold-frame overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="bg-royal-900 text-gold-200 font-display text-xs uppercase tracking-wider">
+                <th class="py-3.5 px-4">#</th>
+                <th class="py-3.5 px-4">Pangalan</th>
+                <th class="py-3.5 px-4">Makakapunta ka ba?</th>
+                <th class="py-3.5 px-4">Family</th>
+                <th class="py-3.5 px-4">Submitted At</th>
+              </tr>
+            </thead>
+            <tbody id="rsvpTableBody" class="divide-y divide-gold-200 bg-ivory-50">
+              <tr>
+                <td colspan="5" class="py-8 px-4 text-center text-royal-800/70">Loading RSVP responses...</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </section>
 
-    <!-- Organizer Manager Section (#organizer-section) -->
-    <section id="organizer-section" class="scroll-mt-24">
-      <div class="rounded-3xl p-6 sm:p-10 gold-frame shadow-gold space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-200 pb-4">
-          <div>
-            <div class="text-xs font-bold uppercase tracking-widest text-gold-500">
-              ✦ Organizer Controls
-            </div>
-            <h2 class="font-display text-2xl sm:text-3xl font-bold text-royal-900 mt-0.5">
-              RSVP Entries, Manual Add &amp; Excel Print
-            </h2>
-          </div>
-          <span id="organizerStatusBadge" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-ivory-100 border border-gold-500/70 text-royal-900">
-            Locked
-          </span>
-        </div>
-
-        <!-- Passcode Gate -->
-        <div id="organizerLockBox" class="max-w-md space-y-3">
-          <label for="organizerPasscodeInput" class="block text-sm font-bold text-royal-900">
-            Enter Organizer Passcode to Manage Entries
-          </label>
-          <div class="flex flex-col sm:flex-row gap-2.5">
-            <input
-              id="organizerPasscodeInput"
-              type="password"
-              placeholder="Enter passcode (e.g. SG2027)"
-              class="flex-1 px-4 py-2.5 rounded-xl bg-ivory-50 border-2 border-gold-500/75 text-royal-950 focus:outline-none focus:border-royal-800 text-sm"
-            />
-            <button
-              type="button"
-              onclick="unlockOrganizer()"
-              class="px-5 py-2.5 rounded-xl bg-royal-900 hover:bg-royal-800 text-ivory-50 font-bold text-sm border border-gold-400 transition cursor-pointer"
-            >
-              Unlock
-            </button>
-          </div>
-          <p id="organizerLockErr" class="hidden text-xs font-semibold text-red-700">
-            Incorrect passcode. Please try again.
-          </p>
-        </div>
-
-        <!-- Unlocked Organizer Workspace -->
-        <div id="organizerPanel" class="hidden space-y-6">
-          <div id="organizerNotice" class="hidden px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold"></div>
-
-          <!-- Manual Add Entry Form -->
-          <form id="manualEntryForm" onsubmit="handleManualAddEntry(event)" class="rounded-2xl bg-ivory-100 border border-gold-500/70 p-4 sm:p-5 space-y-4">
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-display text-base sm:text-lg font-bold text-royal-900">
-                Manually Add RSVP Entry
-              </h3>
-              <span class="text-xs text-royal-800/75">Saves directly to Firebase</span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-              <div>
-                <label for="manualPangalan" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1">
-                  Pangalan *
-                </label>
-                <input
-                  id="manualPangalan"
-                  type="text"
-                  required
-                  placeholder="Guest full name"
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-royal-950 text-sm focus:outline-none focus:border-royal-800"
-                />
-              </div>
-
-              <div>
-                <label for="manualResponse" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1">
-                  Makakapunta ka ba? *
-                </label>
-                <select
-                  id="manualResponse"
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-royal-950 text-sm focus:outline-none focus:border-royal-800"
-                >
-                  <option value="Oo">Oo (Attending)</option>
-                  <option value="Hindi">Hindi (Not Attending)</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="manualFamily" class="block text-xs font-bold uppercase tracking-wider text-royal-900 mb-1">
-                  Family *
-                </label>
-                <select
-                  id="manualFamily"
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-ivory-50 border border-gold-500/75 text-royal-950 text-sm focus:outline-none focus:border-royal-800"
-                >
-                  <option value="SILVESTRE">SILVESTRE</option>
-                  <option value="GATMAITAN">GATMAITAN</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
-              <button
-                id="manualAddBtn"
-                type="submit"
-                class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-royal-900 via-royal-800 to-royal-700 text-ivory-50 font-bold text-sm border border-gold-400 shadow hover:brightness-105 transition cursor-pointer"
-              >
-                + Add Entry
-              </button>
-
-              <div class="flex flex-wrap items-center gap-2">
-                <button
-                  type="button"
-                  onclick="loadOrganizerEntries()"
-                  class="px-4 py-2 rounded-xl bg-ivory-50 hover:bg-gold-200 text-royal-900 font-semibold text-xs sm:text-sm border border-gold-500/70 transition cursor-pointer"
-                >
-                  ↻ Refresh
-                </button>
-                <button
-                  type="button"
-                  onclick="printExcelTableOnly()"
-                  class="px-4 py-2 rounded-xl bg-gradient-to-r from-gold-200 via-gold-400 to-gold-500 text-royal-950 font-bold text-xs sm:text-sm border border-gold-500 shadow hover:brightness-105 transition cursor-pointer"
-                >
-                  🖨 Print Excel Table
-                </button>
-              </div>
-            </div>
-          </form>
-
-          <!-- Entries Table with Delete Action -->
-          <div class="overflow-x-auto rounded-2xl border border-gold-500/70 bg-ivory-50">
-            <table class="w-full text-left border-collapse text-sm">
-              <thead class="bg-royal-900 text-ivory-50">
-                <tr>
-                  <th class="py-3 px-4 font-semibold">#</th>
-                  <th class="py-3 px-4 font-semibold">Pangalan</th>
-                  <th class="py-3 px-4 font-semibold">Makakapunta ka ba?</th>
-                  <th class="py-3 px-4 font-semibold">Family</th>
-                  <th class="py-3 px-4 font-semibold">Submitted At</th>
-                  <th class="py-3 px-4 font-semibold text-right">Action</th>
-                </tr>
-              </thead>
-              <tbody id="organizerTableBody" class="divide-y divide-gold-200">
-                <tr>
-                  <td colspan="6" class="py-6 px-4 text-center text-royal-800/75">
-                    Loading entries...
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </main>
-
-  <!-- Footer -->
-  <footer class="bg-royal-900 text-ivory-100 border-t-4 border-gold-500 py-7 px-4 text-center mt-auto">
-    <p class="font-display text-sm sm:text-base font-bold text-gold-200">
-      Silvestre - Gatmaitan Clan Reunion 2027
-    </p>
-    <p class="font-serif italic text-sm text-ivory-100/90 mt-1">
-      “Reconnect • Reunited” • Sunday, January 03, 2027 • Home Sweet Home
-    </p>
-  </footer>
-
-  <!-- Dedicated Excel-Only Print Container (Only this renders when printing) -->
-  <div id="excelPrintOnlyView" class="hidden">
-    <table class="excel-print-table" aria-label="RSVP Excel Table Report">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Pangalan</th>
-          <th>Makakapunta ka ba?</th>
-          <th>Family</th>
-          <th>Submitted At</th>
-        </tr>
-      </thead>
-      <tbody id="excelPrintTableBody"></tbody>
-    </table>
-  </div>
 
   <script>
     (function () {
       'use strict';
 
-      const FIREBASE_BASE_URL = 'https://reunion-2027-300cb-default-rtdb.asia-southeast1.firebasedatabase.app/rsvps';
-      const FIREBASE_DB_URL = FIREBASE_BASE_URL + '.json';
       const ADMIN_PASSCODE = 'SG2027';
+      const FIREBASE_DB_URL = 'https://reunion-2027-300cb-default-rtdb.asia-southeast1.firebasedatabase.app/rsvps.json';
+
       const RSVP_STORAGE_KEY = 'silvestre_gatmaitan_rsvp_2027';
       const RSVP_CHANNEL_NAME = 'silvestre_gatmaitan_rsvp_channel';
       const RSVP_CUSTOM_EVENT = 'silvestre-gatmaitan-rsvp-submitted';
 
-      const fallbackStorage = new Map();
-      let broadcastChannel = null;
-      let currentRecords = [];
+      let records = [];
 
-      function getBroadcastChannel() {
-        if (broadcastChannel) return broadcastChannel;
-        try {
-          if (typeof window.BroadcastChannel === 'function') {
-            broadcastChannel = new window.BroadcastChannel(RSVP_CHANNEL_NAME);
-          }
-        } catch (_err) {
-          broadcastChannel = null;
+      document.getElementById('passcodeInput')?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') unlockDashboard();
+      });
+
+      window.unlockDashboard = function unlockDashboard() {
+        const input = document.getElementById('passcodeInput');
+        const err = document.getElementById('passcodeErr');
+        if (input && input.value === ADMIN_PASSCODE) {
+          err?.classList.add('hidden');
+          document.getElementById('lockScreen')?.classList.add('hidden');
+          document.getElementById('dashboardContent')?.classList.remove('hidden');
+          refreshAllData();
+          setupLiveListeners();
+        } else {
+          err?.classList.remove('hidden');
         }
-        return broadcastChannel;
-      }
+      };
 
-      function readStorageRaw(key) {
+      function readLocalRecords() {
         try {
-          return window.localStorage.getItem(key);
-        } catch (_err) {
-          return fallbackStorage.has(key) ? fallbackStorage.get(key) : null;
-        }
-      }
-
-      function writeStorageRaw(key, value) {
-        fallbackStorage.set(key, String(value));
-        try {
-          window.localStorage.setItem(key, String(value));
-          return true;
-        } catch (_err) {
-          return true;
-        }
-      }
-
-      function readRsvpList() {
-        try {
-          const raw = readStorageRaw(RSVP_STORAGE_KEY);
-          if (!raw) return [];
-          const parsed = JSON.parse(raw);
+          const raw = window.localStorage.getItem(RSVP_STORAGE_KEY);
+          const parsed = raw ? JSON.parse(raw) : [];
           return Array.isArray(parsed) ? parsed : [];
         } catch (_err) {
           return [];
         }
       }
 
-      function notifyOtherPages(entry, allEntries) {
-        const detail = {
-          type: 'rsvp_submitted',
-          key: RSVP_STORAGE_KEY,
-          entry,
-          count: Array.isArray(allEntries) ? allEntries.length : readRsvpList().length,
-          timestamp: Date.now(),
-        };
-
-        try {
-          const channel = getBroadcastChannel();
-          if (channel) channel.postMessage(detail);
-        } catch (_err) {}
-
-        try {
-          window.dispatchEvent(new CustomEvent(RSVP_CUSTOM_EVENT, { detail }));
-        } catch (_err) {}
-      }
-
-      function showAlert(message) {
-        const alertBox = document.getElementById('rsvpAlertBox');
-        if (!alertBox) return;
-        alertBox.textContent = message;
-        alertBox.classList.remove('hidden');
-      }
-
-      function hideAlert() {
-        const alertBox = document.getElementById('rsvpAlertBox');
-        if (!alertBox) return;
-        alertBox.textContent = '';
-        alertBox.classList.add('hidden');
-      }
-
-      function setOrganizerNotice(message, isError) {
-        const notice = document.getElementById('organizerNotice');
-        if (!notice) return;
-        notice.textContent = message;
-        notice.className = isError
-          ? 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-red-50 border border-red-300 text-red-900'
-          : 'px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-50 border border-emerald-300 text-emerald-900';
-        notice.classList.remove('hidden');
-      }
-
-      function escapeHtml(text) {
-        return String(text || '')
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;');
-      }
-
-      function formatDateTime(isoString) {
-        if (!isoString) return '-';
-        const dt = new Date(isoString);
-        return Number.isNaN(dt.getTime()) ? String(isoString) : dt.toLocaleString();
-      }
-
-      async function saveEntryToFirebase(entry) {
-        const fbRes = await fetch(FIREBASE_DB_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(entry),
+      function mergeRecords(localList, remoteList) {
+        const map = new Map();
+        [...remoteList, ...localList].forEach((item, idx) => {
+          if (!item || !item.pangalan) return;
+          const key = item.id || `${item.pangalan}|${item.family}|${item.submittedAt || idx}`;
+          map.set(key, item);
         });
-        if (!fbRes.ok) {
-          throw new Error('Firebase save failed');
-        }
-        return fbRes.json();
+        return Array.from(map.values()).sort((a, b) =>
+          String(a.submittedAt || '').localeCompare(String(b.submittedAt || ''))
+        );
       }
 
-      window.clearFieldValidation = function clearFieldValidation(errorId) {
-        hideAlert();
-        if (errorId) {
-          const errEl = document.getElementById(errorId);
-          if (errEl) errEl.classList.add('hidden');
-        }
-      };
-
-      window.handleRsvpSubmit = async function handleRsvpSubmit(event) {
-        event.preventDefault();
-        hideAlert();
-
-        const submitBtn = document.getElementById('submitRsvpBtn');
-
-        try {
-          const pangalanInput = document.getElementById('pangalanInput');
-          const pangalan = pangalanInput ? pangalanInput.value.trim() : '';
-
-          const selectedResponse = document.querySelector('input[name="response"]:checked');
-          const response = selectedResponse ? selectedResponse.value : '';
-
-          const selectedFamily = document.querySelector('input[name="family"]:checked');
-          const family = selectedFamily ? selectedFamily.value : '';
-
-          let isValid = true;
-          if (!pangalan) {
-            document.getElementById('pangalanErr')?.classList.remove('hidden');
-            isValid = false;
-          }
-          if (!response) {
-            document.getElementById('responseErr')?.classList.remove('hidden');
-            isValid = false;
-          }
-          if (!family) {
-            document.getElementById('familyErr')?.classList.remove('hidden');
-            isValid = false;
-          }
-
-          if (!isValid) {
-            showAlert('Please complete Pangalan, Makakapunta ka ba?, and Family (*) before submitting.');
-            return;
-          }
-
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Saving RSVP...';
-          }
-
-          const entry = {
-            id: 'rsvp-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
-            pangalan,
-            response,
-            family,
-            submittedAt: new Date().toISOString(),
-          };
-
-          await saveEntryToFirebase(entry);
-
-          const existing = readRsvpList();
-          existing.push(entry);
-          writeStorageRaw(RSVP_STORAGE_KEY, JSON.stringify(existing));
-          notifyOtherPages(entry, existing);
-
-          document.getElementById('summaryPangalan').textContent = entry.pangalan;
-          document.getElementById('summaryResponse').textContent = entry.response;
-          document.getElementById('summaryFamily').textContent = entry.family;
-          document.getElementById('summarySubmittedAt').textContent = formatDateTime(entry.submittedAt);
-          document.getElementById('confirmationSummary').textContent =
-            entry.response === 'Oo'
-              ? `Thank you, ${entry.pangalan}! Your attendance for Sunday, January 03, 2027 has been saved.`
-              : `Thank you for letting us know, ${entry.pangalan}. Your RSVP response has been saved.`;
-
-          const form = document.getElementById('rsvpForm');
-          const banner = document.getElementById('rsvpConfirmationBanner');
-          if (form) {
-            form.reset();
-            form.classList.add('hidden');
-          }
-          if (banner) {
-            banner.classList.remove('hidden');
-          }
-
-          if (!document.getElementById('organizerPanel')?.classList.contains('hidden')) {
-            loadOrganizerEntries();
-          }
-        } catch (_err) {
-          showAlert('Unable to save your RSVP right now. Please check your internet connection and try again.');
-        } finally {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit RSVP';
-          }
-        }
-      };
-
-      window.resetRsvpForm = function resetRsvpForm() {
-        hideAlert();
-        document.getElementById('pangalanErr')?.classList.add('hidden');
-        document.getElementById('responseErr')?.classList.add('hidden');
-        document.getElementById('familyErr')?.classList.add('hidden');
-
-        const form = document.getElementById('rsvpForm');
-        const banner = document.getElementById('rsvpConfirmationBanner');
-        if (form) {
-          form.reset();
-          form.classList.remove('hidden');
-        }
-        if (banner) {
-          banner.classList.add('hidden');
-        }
-        document.getElementById('pangalanInput')?.focus();
-      };
-
-      window.unlockOrganizer = function unlockOrganizer() {
-        const input = document.getElementById('organizerPasscodeInput');
-        const err = document.getElementById('organizerLockErr');
-        const entered = input ? input.value.trim() : '';
-
-        if (entered !== ADMIN_PASSCODE) {
-          err?.classList.remove('hidden');
-          return;
-        }
-
-        err?.classList.add('hidden');
-        document.getElementById('organizerLockBox')?.classList.add('hidden');
-        document.getElementById('organizerPanel')?.classList.remove('hidden');
-        const badge = document.getElementById('organizerStatusBadge');
-        if (badge) {
-          badge.textContent = 'Unlocked • Synced';
-        }
-        loadOrganizerEntries();
-      };
-
-      function renderOrganizerTables(records) {
-        currentRecords = records;
-        const tbody = document.getElementById('organizerTableBody');
-        const printBody = document.getElementById('excelPrintTableBody');
-
-        if (printBody) {
-          if (!records.length) {
-            printBody.innerHTML = '<tr><td colspan="5">No entries</td></tr>';
-          } else {
-            printBody.innerHTML = records
-              .map(
-                (item, idx) => `
-                <tr>
-                  <td>${idx + 1}</td>
-                  <td>${escapeHtml(item.pangalan)}</td>
-                  <td>${escapeHtml(item.response)}</td>
-                  <td>${escapeHtml(item.family)}</td>
-                  <td>${escapeHtml(formatDateTime(item.submittedAt))}</td>
-                </tr>
-              `
-              )
-              .join('');
-          }
-        }
-
-        if (!tbody) return;
-        if (!records.length) {
-          tbody.innerHTML = `
-            <tr>
-              <td colspan="6" class="py-6 px-4 text-center text-royal-800/75">
-                No RSVP entries found in Firebase yet.
-              </td>
-            </tr>
-          `;
-          return;
-        }
-
-        tbody.innerHTML = records
-          .map(
-            (item, idx) => `
-            <tr class="hover:bg-ivory-100">
-              <td class="py-3 px-4 font-semibold text-royal-900">${idx + 1}</td>
-              <td class="py-3 px-4 font-semibold text-royal-950">${escapeHtml(item.pangalan)}</td>
-              <td class="py-3 px-4">
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold ${
-                  item.response === 'Oo'
-                    ? 'bg-emerald-100 text-emerald-900'
-                    : 'bg-amber-100 text-amber-900'
-                }">
-                  ${escapeHtml(item.response)}
-                </span>
-              </td>
-              <td class="py-3 px-4 font-medium text-royal-900">${escapeHtml(item.family)}</td>
-              <td class="py-3 px-4 text-xs text-royal-800/80">${escapeHtml(formatDateTime(item.submittedAt))}</td>
-              <td class="py-3 px-4 text-right">
-                <button
-                  type="button"
-                  onclick="deleteRsvpEntry('${escapeHtml(item.fbKey)}', '${escapeHtml(item.pangalan)}')"
-                  class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition cursor-pointer"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          `
-          )
-          .join('');
-      }
-
-      window.loadOrganizerEntries = async function loadOrganizerEntries() {
-        const tbody = document.getElementById('organizerTableBody');
-        if (tbody) {
-          tbody.innerHTML = `
-            <tr>
-              <td colspan="6" class="py-6 px-4 text-center text-royal-800/75">
-                Loading entries from Firebase...
-              </td>
-            </tr>
-          `;
-        }
+      window.refreshAllData = async function refreshAllData() {
+        const localList = readLocalRecords();
+        let remoteList = [];
+        let statusText = 'Connecting to Firebase...';
 
         try {
           const res = await fetch(FIREBASE_DB_URL);
-          if (!res.ok) throw new Error('Failed to fetch entries');
           const data = await res.json();
-
-          const records = [];
           if (data && typeof data === 'object') {
-            Object.keys(data).forEach((fbKey) => {
-              const val = data[fbKey];
-              if (val && typeof val === 'object') {
-                records.push({
-                  fbKey,
-                  id: val.id || fbKey,
-                  pangalan: val.pangalan || '',
-                  response: val.response || '',
-                  family: val.family || '',
-                  submittedAt: val.submittedAt || '',
-                });
-              }
-            });
+            remoteList = Object.values(data);
           }
-
-          records.sort((a, b) => new Date(b.submittedAt || 0) - new Date(a.submittedAt || 0));
-          renderOrganizerTables(records);
+          statusText = `Synced with Firebase • Updated ${new Date().toLocaleTimeString()}`;
         } catch (_err) {
-          setOrganizerNotice('Could not load entries from Firebase. Check your connection.', true);
+          statusText = 'Offline mode: showing local device entries';
         }
+
+        records = mergeRecords(localList, remoteList);
+        const statusEl = document.getElementById('syncStatus');
+        if (statusEl) statusEl.textContent = statusText;
+
+        updateCounts();
+        renderRows();
       };
 
-      window.handleManualAddEntry = async function handleManualAddEntry(event) {
-        event.preventDefault();
-        const nameInput = document.getElementById('manualPangalan');
-        const responseSelect = document.getElementById('manualResponse');
-        const familySelect = document.getElementById('manualFamily');
-        const addBtn = document.getElementById('manualAddBtn');
+      function updateCounts() {
+        const total = records.length;
+        const oo = records.filter((r) => r.response === 'Oo').length;
+        const hindi = records.filter((r) => r.response === 'Hindi').length;
+        const silvestre = records.filter((r) => r.family === 'SILVESTRE').length;
+        const gatmaitan = records.filter((r) => r.family === 'GATMAITAN').length;
 
-        const pangalan = nameInput ? nameInput.value.trim() : '';
-        const response = responseSelect ? responseSelect.value : 'Oo';
-        const family = familySelect ? familySelect.value : 'SILVESTRE';
+        document.getElementById('countTotal').textContent = total;
+        document.getElementById('countOo').textContent = oo;
+        document.getElementById('countHindi').textContent = hindi;
+        document.getElementById('countSilvestre').textContent = silvestre;
+        document.getElementById('countGatmaitan').textContent = gatmaitan;
+      }
 
-        if (!pangalan) {
-          setOrganizerNotice('Please enter Pangalan before adding an entry.', true);
+      function escapeHtml(str) {
+        return String(str || '').replace(/[&<>"']/g, (ch) => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+        }[ch]));
+      }
+
+      window.renderRows = function renderRows() {
+        const q = (document.getElementById('searchName')?.value || '').trim().toLowerCase();
+        const respFilter = document.getElementById('filterResponse')?.value || 'ALL';
+        const famFilter = document.getElementById('filterFamily')?.value || 'ALL';
+        const tbody = document.getElementById('rsvpTableBody');
+        if (!tbody) return;
+
+        const filtered = records.filter((r) => {
+          const matchName = !q || String(r.pangalan || '').toLowerCase().includes(q);
+          const matchResp = respFilter === 'ALL' || r.response === respFilter;
+          const matchFam = famFilter === 'ALL' || r.family === famFilter;
+          return matchName && matchResp && matchFam;
+        });
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="5" class="py-8 px-4 text-center text-royal-800/70">
+                No matching RSVP records found.
+              </td>
+            </tr>`;
           return;
         }
 
+        tbody.innerHTML = filtered.map((r, i) => {
+          const isOo = r.response === 'Oo';
+          const badgeClass = isOo
+            ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+            : 'bg-red-100 text-red-900 border border-red-300';
+          const formattedDate = r.submittedAt
+            ? new Date(r.submittedAt).toLocaleString()
+            : '-';
+
+          return `
+            <tr class="hover:bg-ivory-100">
+              <td class="py-3 px-4 font-semibold text-royal-800">${i + 1}</td>
+              <td class="py-3 px-4 font-bold text-royal-950">${escapeHtml(r.pangalan)}</td>
+              <td class="py-3 px-4">
+                <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold ${badgeClass}">
+                  ${escapeHtml(r.response)}
+                </span>
+              </td>
+              <td class="py-3 px-4 font-display font-bold text-xs tracking-wide text-royal-900">
+                ${escapeHtml(r.family)}
+              </td>
+              <td class="py-3 px-4 text-xs text-royal-800/80">${escapeHtml(formattedDate)}</td>
+            </tr>`;
+        }).join('');
+      };
+
+      function setupLiveListeners() {
+        window.addEventListener('storage', (e) => {
+          if (e.key === RSVP_STORAGE_KEY) refreshAllData();
+        });
+        window.addEventListener(RSVP_CUSTOM_EVENT, () => refreshAllData());
         try {
-          if (addBtn) {
-            addBtn.disabled = true;
-            addBtn.textContent = 'Adding...';
+          if (typeof window.BroadcastChannel === 'function') {
+            const ch = new window.BroadcastChannel(RSVP_CHANNEL_NAME);
+            ch.onmessage = () => refreshAllData();
           }
-
-          const newEntry = {
-            id: 'rsvp-manual-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
-            pangalan,
-            response,
-            family,
-            submittedAt: new Date().toISOString(),
-          };
-
-          await saveEntryToFirebase(newEntry);
-          if (nameInput) nameInput.value = '';
-          setOrganizerNotice(`Added "${pangalan}" to Firebase.`);
-          await loadOrganizerEntries();
-        } catch (_err) {
-          setOrganizerNotice('Failed to add entry. Please try again.', true);
-        } finally {
-          if (addBtn) {
-            addBtn.disabled = false;
-            addBtn.textContent = '+ Add Entry';
-          }
-        }
-      };
-
-      window.deleteRsvpEntry = async function deleteRsvpEntry(fbKey, pangalan) {
-        if (!fbKey) return;
-        const confirmed = window.confirm(`Delete RSVP entry for "${pangalan || 'this guest'}"?`);
-        if (!confirmed) return;
-
-        try {
-          const delUrl = `${FIREBASE_BASE_URL}/${encodeURIComponent(fbKey)}.json`;
-          const res = await fetch(delUrl, { method: 'DELETE' });
-          if (!res.ok) throw new Error('Delete failed');
-
-          setOrganizerNotice(`Deleted entry for "${pangalan || 'guest'}".`);
-          await loadOrganizerEntries();
-        } catch (_err) {
-          setOrganizerNotice('Unable to delete entry. Please try again.', true);
-        }
-      };
-
-      window.printExcelTableOnly = function printExcelTableOnly() {
-        renderOrganizerTables(currentRecords);
-        window.print();
-      };
+        } catch (_err) {}
+      }
     })();
   </script>
 </body>
