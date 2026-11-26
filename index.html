@@ -185,7 +185,13 @@
             “Reconnect • Reunited” — Bringing our <span class="text-gold-200 font-semibold">Home Sweet Home</span> spirit to life as the Silvestre and Gatmaitan families gather on Sunday, January 03, 2027.
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-left">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 text-left">
+            <div class="p-3.5 rounded-2xl bg-royal-950/85 border border-gold-400 shadow">
+              <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Days Left</div>
+              <div id="daysLeftValue" class="font-display text-2xl font-bold text-gold-300 mt-0.5">--</div>
+              <div id="daysLeftLabel" class="text-[11px] text-ivory-100/80 mt-0.5">Until Jan 03, 2027</div>
+            </div>
+
             <div class="p-3.5 rounded-2xl bg-royal-950/75 border border-gold-400/55">
               <div class="text-[11px] uppercase tracking-wider text-gold-200 font-bold">Date</div>
               <div class="font-semibold text-sm text-ivory-50 mt-0.5">Sunday, January 03, 2027</div>
@@ -223,10 +229,17 @@
             </div>
 
             <div class="relative aspect-[4/4.25] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-royal-700 via-royal-900 to-royal-950 border-2 border-gold-500 flex items-center justify-center">
+              <img
+                id="tributePortraitPhoto"
+                src="image.jpg"
+                alt="Honored elders of the Silvestre and Gatmaitan families"
+                class="w-full h-full object-cover"
+                onerror="this.classList.add('hidden'); document.getElementById('tributeVectorFallback')?.classList.remove('hidden');"
+              />
               <svg
                 id="tributeVectorFallback"
                 viewBox="0 0 400 425"
-                class="w-full h-full object-cover"
+                class="hidden w-full h-full object-cover"
                 role="img"
                 aria-label="Warm vector illustration of the Silvestre and Gatmaitan elder couple"
               >
@@ -652,9 +665,35 @@
       const RSVP_STORAGE_KEY = 'silvestre_gatmaitan_rsvp_2027';
       const RSVP_CHANNEL_NAME = 'silvestre_gatmaitan_rsvp_channel';
       const RSVP_CUSTOM_EVENT = 'silvestre-gatmaitan-rsvp-submitted';
+      const REUNION_DATE = new Date(2027, 0, 3); // Sunday, January 03, 2027
 
       const fallbackStorage = new Map();
       let broadcastChannel = null;
+
+      function updateDaysLeftCounter() {
+        const valueEl = document.getElementById('daysLeftValue');
+        const labelEl = document.getElementById('daysLeftLabel');
+        if (!valueEl || !labelEl) return;
+
+        const now = new Date();
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const targetStart = new Date(REUNION_DATE.getFullYear(), REUNION_DATE.getMonth(), REUNION_DATE.getDate());
+        const diffDays = Math.round((targetStart - todayStart) / 86400000);
+
+        if (diffDays > 0) {
+          valueEl.textContent = String(diffDays);
+          labelEl.textContent = diffDays === 1 ? 'Day left until Jan 03, 2027' : 'Days left until Jan 03, 2027';
+        } else if (diffDays === 0) {
+          valueEl.textContent = 'TODAY';
+          labelEl.textContent = 'Reunion Day • Jan 03, 2027';
+        } else {
+          const daysAgo = Math.abs(diffDays);
+          valueEl.textContent = String(daysAgo);
+          labelEl.textContent = daysAgo === 1 ? 'Day since Jan 03, 2027' : 'Days since Jan 03, 2027';
+        }
+      }
+
+      updateDaysLeftCounter();
 
       function getBroadcastChannel() {
         if (broadcastChannel) return broadcastChannel;
